@@ -36,3 +36,32 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'debugger'
+
+group :development, :test do
+  gem "rspec-rails"
+  gem "guard-rspec"
+  gem "capybara"
+  gem "database_cleaner"
+  # gem "capybara-webkit"
+
+  # headless jasmine
+  gem 'jasmine-headless-webkit'
+  gem 'guard-jasmine-headless-webkit'
+
+  gem "selenium-webdriver"
+  gem "jasmine"
+  gem "pry-rails"
+  gem "awesome_print"
+end
+
+group :development do
+  gem "annotate"
+  gem "quiet_assets"
+  gem "binding_of_caller"
+  gem "meta_request"
+  gem "rails-erd"
+  gem "better_errors"
+  gem "terminal-notifier-guard"
+end
+
+gem "simplecov", :require => false, :group => :test
