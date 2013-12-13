@@ -10,8 +10,11 @@ disciplinary_responses
 guidance_interventions
 
 
+2. create models
+service_category.rb
+service_provider.rb
+infraction.rb
+disciplinary_response.rb
+guidance_intervention.rb
+
 2. Create seed files
-
-
-
-
