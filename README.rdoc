@@ -15,6 +15,10 @@ infraction.rb
 disciplinary_response.rb
 guidance_intervention.rb
 
+2a. Create test for models
+need a file spec/models/service_category_spec.rb
+
+
 3. create tables for non-lookup tables
 referrals
 users
@@ -23,6 +27,8 @@ students
 parents
 incident_logs
 school_districts
+roles
+school_systems
 
 4. create models for non-lookup tables
 referral.rb
@@ -32,6 +38,8 @@ student.rb
 parent.rb
 incidents_log.rb
 school_district.rb
+school_system.rb
+role.rb
 
 5. Create the association
 

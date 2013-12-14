@@ -1,14 +1,15 @@
 # == Schema Information
 #
-# Table name: service_categories
+# Table name: incident_logs
 #
 #  id         :integer          not null, primary key
-#  name       :string(255)
+#  student_id :integer
+#  user_id    :integer
+#  comment    :text
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
-class ServiceCategory < ActiveRecord::Base
-  # attr_accessible :name
-  has_many :names
+class IncidentLog < ActiveRecord::Base
+
 end

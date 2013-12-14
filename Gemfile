@@ -52,6 +52,7 @@ group :development, :test do
   gem "jasmine"
   gem "pry-rails"
   gem "awesome_print"
+  gem 'factory_girl'
 end
 
 group :development do

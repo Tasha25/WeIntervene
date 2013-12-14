@@ -8,7 +8,15 @@
 #  updated_at :datetime         not null
 #
 
-class ServiceCategory < ActiveRecord::Base
-  # attr_accessible :name
-  has_many :names
+require 'spec_helper'
+
+describe ServiceCategory do
+  # let (:service_category) {ServiceCategory.new}
+
+  #   it "should have a list of names" do
+  #     names = mock('names')
+  #   end
+  # end
+  pending " some info"
 end
+
