@@ -1,6 +1,7 @@
-class ServiceProvidersTable < ActiveRecord::Migration
-  def change
-    create_table :service_providers do |t|
+class SchoolsTable < ActiveRecord::Migration
+   def change
+    create_table :schools do |t|
+      t.integer :district
       t.string :name
       t.string :mission
       t.string :image_url
@@ -13,8 +14,7 @@ class ServiceProvidersTable < ActiveRecord::Migration
       t.string :zip_code
       t.string :work_phone
       t.string :fax
-      t.string :infraction_supported
-      t.text :other
+      t.integer :school_district_id
       t.timestamps
     end
   end
