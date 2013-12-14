@@ -1,6 +1,6 @@
 class SchoolSystemsTable < ActiveRecord::Migration
   def change
-    create_table :school_systemss do |t|
+    create_table :school_systems do |t|
       t.string :name
       t.string :contact_person
       t.string :contact_email
