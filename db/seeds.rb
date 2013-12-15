@@ -6,6 +6,34 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+SchoolSystem.create(name: 'NYCDOE', contact_person: 'Yolanda Smith ', contact_email: 'ysmith@nycdoe.com', street1: ' 100 Lane',city: 'Bx', state: 'NY', zip_code: '11201', phone: '2123456789');
+SchoolSystem.create(name: 'Long Island', contact_person: 'Phil Smith ', contact_email: 'psmith@lidoe.com', street1: ' 200 Lane',city: 'Nassau', state: 'NY', zip_code: '10056', phone: '5163456789');
+
+
+SchoolDistrict.create(name: 'District 10', contact_person: 'Don Lie', school_system_id: 1 );
+SchoolDistrict.create(name: 'District 10', contact_person: 'Jon New', school_system_id: 1 );
+SchoolDistrict.create(name: 'District 11', contact_person: 'Harry Tall', school_system_id: 2 );
+
+
+School.create(name:'DWCHS', mission:' sine labore nihil', school_district_id: '2') ;
+School.create(name:'JFK', mission:' we have fun', school_district_id: '3')
+
+
+User.create(user_name: "ngreen", email: "ngreen@schools.nyc", school_id: '1', service_provider_id: '') ;
+User.create(user_name: "mcollins", email: "mcollins@schools.nyc", school_id: '1', service_provider_id: '');
+User.create(user_name: "wclarke", email: "wclarke@schools.nyc", school_id: '', service_provider_id: '5');
+
+Role.create(title: "teacher");
+Role.create(title: "parent");
+Role.create(title: "social worker");
+Role.create(title: "dean");
+Role.create(title: "principal");
+
+RolesUsers.create( role_id: '1', user_id: '1');
+RolesUsers.create( role_id: '2', user_id: '1');
+RolesUsers.create( role_id: '4', user_id: '2');
+RolesUsers.create( role_id: '3', user_id: '2');
+
 ServiceCategory.create(name: 'Parent outreach')
 ServiceCategory.create(name: 'Intervention by Counseling')
 ServiceCategory.create(name: 'Guidance conference')

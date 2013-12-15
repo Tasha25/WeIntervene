@@ -59,4 +59,29 @@ schools.
 
 5.
 
+class RolesUsersJoinTable < ActiveRecord::Migration
+  def change
+    create_table :roles_users, id => false do |t|
+      t.integer :role_id
+      t.integer :user_id
+    end
+  end
+end
+
+
+class RoleUser < ActiveRecord::Base
+  attr_accessible(:role_id, :user_id)
+
+end
+
+class RolesUsersJoinTable < ActiveRecord::Migration
+  def change
+    create_table :role_users, :id => false do |t|
+      t.references :user
+      t.references :role
+    end
+    add_index :role_users, :user_id
+    add_index :role_users, :role_id
+  end
+end
 

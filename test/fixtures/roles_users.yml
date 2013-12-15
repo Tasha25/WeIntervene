@@ -1,0 +1,11 @@
+<% 1.upto(3) do |i| %>
+roles_users_<%= i+1 %>:
+  role_id: 3
+  user_id: <%= i %>
+<% end %>
+
+<% 4.upto(6) do |i| %>
+roles_users_<%= i+1 %>:
+  role_id: 2
+  user_id: <%= i %>
+<% end %>

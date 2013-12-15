@@ -23,4 +23,7 @@
 
 class School < ActiveRecord::Base
 
+attr_accessible(:name,  :mission, :image_url, :website, :email, :street1, :street2, :city, :state, :zip_code, :work_phone, :fax, :school_district_id)
+
+  has_many :users
 end

@@ -1,0 +1,20 @@
+Texas:
+  name: 'Texas'
+  contact_person: 'Happy Person '
+  contact_email: 'hperson@texas.com'
+  street1: ' 100 Lane Texat'
+  city: 'Austin'
+  state: 'TX'
+  zip_code: '11201'
+  phone: '2123456789'
+
+California_District:
+
+ name:'California'
+ contact_person: 'Cali Person'
+ contact_email: 'cperson@calidoe.com'
+ street1: ' 200 Lane Cali'
+ city: 'San Francisco'
+ state: 'CA'
+ zip_code: '10056'
+ phone: '5163456789'

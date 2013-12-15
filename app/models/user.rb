@@ -13,5 +13,10 @@
 #
 
 class User < ActiveRecord::Base
-  # attr_accessible :code, :description
+   attr_accessible(:user_name, :password_digest, :email, :school_id, :service_provider_id )
+
+   has_many :referrals
+   belongs_to :school
+   has_many :incident_logs
+   has_and_belongs_to_many :roles
 end
