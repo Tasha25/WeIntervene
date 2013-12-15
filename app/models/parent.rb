@@ -18,6 +18,9 @@
 #  guardian_role :string(255)
 #
 
-class Parent< ActiveRecord::Base
+class Parent < ActiveRecord::Base
+  attr_accessible :first_name, :middle_name, :last_name, :suffix, :email, :street1, :street2, :city, :state, :zip_code, :work_phone, :cell_phone, :guardian_role
+
+  has_and_belongs_to_many :students
 
 end

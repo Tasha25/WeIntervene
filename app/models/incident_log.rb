@@ -11,5 +11,12 @@
 #
 
 class IncidentLog < ActiveRecord::Base
+  attr_accessible :comment, :student_id, :user_id
+
+  has_and_belongs_to_many :infractions
+  has_and_belongs_to_many :disciplinary_responses
+  has_and_belongs_to_many :guidance_interventions
+  belongs_to :user
+  belongs_to :student
 
 end

@@ -10,5 +10,8 @@
 #
 
 class Infraction < ActiveRecord::Base
-  # attr_accessible :code, :description
+   attr_accessible :code, :description
+
+   has_and_belongs_to_many :service_providers
+   has_and_belongs_to_many :incident_logs
 end

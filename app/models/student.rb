@@ -16,4 +16,9 @@
 
 class Student < ActiveRecord::Base
 
+  attr_accessible :first_name, :middle_name, :last_name, :suffix, :identification_number, :date_of_birth, :school_id
+
+  belongs_to :school
+  has_and_belongs_to_many :parents
+
 end

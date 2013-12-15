@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131215004318) do
+ActiveRecord::Schema.define(:version => 20131215162835) do
 
   create_table "disciplinary_responses", :force => true do |t|
     t.string   "code"
@@ -21,11 +21,21 @@ ActiveRecord::Schema.define(:version => 20131215004318) do
     t.datetime "updated_at",  :null => false
   end
 
+  create_table "disciplinary_responses_incident_logs", :id => false, :force => true do |t|
+    t.integer "disciplinary_response_id"
+    t.integer "incident_log_id"
+  end
+
   create_table "guidance_interventions", :force => true do |t|
     t.string   "name"
     t.string   "description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+  end
+
+  create_table "guidance_interventions_incident_logs", :id => false, :force => true do |t|
+    t.integer "guidance_intervention_id"
+    t.integer "incident_log_id"
   end
 
   create_table "incident_logs", :force => true do |t|
@@ -36,11 +46,21 @@ ActiveRecord::Schema.define(:version => 20131215004318) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "incident_logs_infractions", :id => false, :force => true do |t|
+    t.integer "incident_logs_id"
+    t.integer "infractions_id"
+  end
+
   create_table "infractions", :force => true do |t|
     t.string   "code"
     t.string   "description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+  end
+
+  create_table "infractions_service_providers", :id => false, :force => true do |t|
+    t.integer "infraction_id"
+    t.integer "service_provider_id"
   end
 
   create_table "parents", :force => true do |t|
@@ -59,12 +79,22 @@ ActiveRecord::Schema.define(:version => 20131215004318) do
     t.string "guardian_role"
   end
 
+  create_table "parents_students", :id => false, :force => true do |t|
+    t.integer "parent_id"
+    t.integer "student_id"
+  end
+
   create_table "referrals", :force => true do |t|
     t.string   "comment"
     t.integer  "user_id"
     t.integer  "student_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "referrals_service_providers", :id => false, :force => true do |t|
+    t.integer "referral_id"
+    t.integer "service_provider_id"
   end
 
   create_table "roles", :force => true do |t|
@@ -132,6 +162,11 @@ ActiveRecord::Schema.define(:version => 20131215004318) do
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "service_categories_service_providers", :id => false, :force => true do |t|
+    t.integer "service_category_id"
+    t.integer "service_provider_id"
   end
 
   create_table "service_providers", :force => true do |t|

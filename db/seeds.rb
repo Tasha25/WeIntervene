@@ -41,15 +41,26 @@ ServiceCategory.create(name: 'Restorative Approaches')
 ServiceCategory.create(name: 'Mentoring Programs')
 ServiceCategory.create(name: 'Peer Mediation')
 
+IncidentLogs.create()
+
+
+
 ServiceProvider.create(name: 'Madison Square Boys & Girls Club',mission: 'The mission of Madison Square Boys & Girls Club is to save and enhance the lives of New York City boys and girls who by means of economic and/or social factors are most in need of its services.',image_url: 'http://www.chrisdraftfamilyfoundation.org/tools/events/files/madison-square-boys-and-girls-club-golf_rs-1.jpg',website: 'http://www.madisonsquare.org/site/PageServer',email: 'jpatuleia@madisonsquare.org',street1: '317 Madison Avenue, Suite 1110',street2: '',city: 'New York',state:'NY',zip_code: '10017',work_phone: '(212) 760-9600',fax: '',infraction_supported: '',other: ''
 )
 
-ServiceProvider.create( name: 'Hidden Gems Archery' , mission: 'to bring archery to the masses', image_url:'http://www.hiddengemsarchery.com/wp-content/uploads/2013/02/cropped-Screen-Shot-2013-02-12-at-11.45.43-AM-e1360885247611.png',website: 'http://www.hiddengemsarchery.com/', email: 'info@thehiddengems.com', street1: '180 Remson Street', street2: '', city:'Bronx', state:'NY', zip_code:'10469', work_phone:'254-247-4477', fax:'', infraction_supported:'',other:'',
+ServiceProvider.create( name: 'Hidden Gems Archery' , mission: 'to bring archery to the masses', image_url:'http://www.hiddengemsarchery.com/wp-content/uploads/2013/02/cropped-Screen-Shot-2013-02-12-at-11.45.43-AM-e1360885247611.png',website: 'http://www.hiddengemsarchery.com/', providers_email: 'info@thehiddengems.com', street1: '180 Remson Street', street2: '', city:'Bronx', state:'NY', zip_code:'10469', work_phone:'254-247-4477', fax:'', infraction_supported:'',other:'',
+)
+ServiceProvider.create( name: 'Cardinal McCloskey' , mission: 'Our At-Risk Services’ mission is to promote a safe and nurturing environment for at-risk children and youth and the goal is to keep children safe, prevent abuse and strengthen biological families.', image_url: '', website: 'http://www.cmcs.org/', providers_email: 'MHess@cmcs.org', street1: '953 Southern Blvd.', street2: 'Room 303', city:'Bronx', state:'NY', zip_code:'10459', work_phone:'718-542-0255', fax:'', infraction_supported:'', other:'',
 )
 
-ServiceProvider.create( name: 'Cardinal McCloskey' , mission: 'Our At-Risk Services’ mission is to promote a safe and nurturing environment for at-risk children and youth and the goal is to keep children safe, prevent abuse and strengthen biological families.', image_url: '', website: 'http://www.cmcs.org/', email: 'MHess@cmcs.org', street1: '953 Southern Blvd.', street2: 'Room 303', city:'Bronx', state:'NY', zip_code:'10459', work_phone:'718-542-0255', fax:'', infraction_supported:'', other:'',
-)
+Student.create(first_name: 'John', last_name: 'Doe', identification_number: '123456789', date_of_birth: '12/13/99', school_id:'1')
+Student.create(first_name: 'Clarissa', last_name: 'Burke', identification_number: '11122233', date_of_birth: '1/19/98', school_id:'1')
+Student.create(first_name: 'Tom', last_name: 'Hanks', identification_number: '237849679', date_of_birth: '2/10/97', school_id:'2')
 
+Referral.create( comment: 'Student needs some help with anger issues', user_id: '1' , student_id: '2' )
+Referral.create( comment: 'Student needs counseling', user_id: '1' , student_id: '3' )
+Referral.create( comment: 'gang intervention', user_id: '2' , student_id: '1' )
+Referral.create( comment: 'peer mediation', user_id: '1' , student_id: '1' )
 
 DisciplinaryResponse.create(code: 'G', name:'Principal\'s Suspension', description:'This can be 5 days or less')
 DisciplinaryResponse.create(code: 'H', name:'Superintendent\'s suspension', description:'This will result in immediate reinstatement')

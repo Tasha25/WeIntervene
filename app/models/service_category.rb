@@ -9,6 +9,7 @@
 #
 
 class ServiceCategory < ActiveRecord::Base
-  # attr_accessible :name
-  has_many :names
+  attr_accessible :name
+
+  has_and_belongs_to_many :service_providers
 end

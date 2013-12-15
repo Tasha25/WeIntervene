@@ -1,0 +1,6 @@
+<% 1.upto(3) do |i| %>
+service_categories_service_providers_<%= i+1 %>:
+  service_category_id: 1
+  service_provider_id: <%= i %>
+<% end %>
+

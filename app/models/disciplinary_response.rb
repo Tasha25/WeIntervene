@@ -11,6 +11,9 @@
 #
 
 class DisciplinaryResponse < ActiveRecord::Base
-  # attr_accessible :code, :name, :description
+   attr_accessible :code, :name, :description
+
+   has_and_belongs_to_many :incident_logs
+
 end
 
