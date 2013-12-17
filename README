@@ -1,0 +1,185 @@
+12/17/13
+
+
+==Forms
+Finish making forms for referrals
+Finish making form for incident logs
+
+==Information for Database
+Clear database
+Add information
+
+== Styling
+Have splash page up
+Have signin sheet up
+Have logo on the top left
+Style sheets
+
+===Run testing
+1. User model
+you might want to add this to bash file later
+
+alias rake_db_migrate=`rake db:migrate && rake db:migrate RAILS_ENV=test`
+#Then you cand type $rake_db_migrate in your terminal
+
+In the Guardfile you need:
+==begin code
+
+guard :rspec, all_after_pass: true do
+# guard :rspec do
+  watch(%r{^spec/.+_spec\.rb$})
+  watch(%r{^lib/(.+)\.rb$})     { |m| "spec/lib/#{m[1]}_spec.rb" }
+  watch('spec/spec_helper.rb')  { "spec" }
+
+  # Rails example
+  watch(%r{^app/(.+)\.rb$})                           { |m| "spec/#{m[1]}_spec.rb" }
+  watch(%r{^app/(.*)(\.erb|\.haml|\.slim)$})          { |m| "spec/#{m[1]}#{m[2]}_spec.rb" }
+  watch(%r{^app/controllers/(.+)_(controller)\.rb$})  { |m| ["spec/routing/#{m[1]}_routing_spec.rb", "spec/#{m[2]}s/#{m[1]}_#{m[2]}_spec.rb", "spec/acceptance/#{m[1]}_spec.rb"] }
+  watch(%r{^spec/support/(.+)\.rb$})                  { "spec" }
+  watch('config/routes.rb')                           { "spec/routing" }
+  watch('app/controllers/application_controller.rb')  { "spec/controllers" }
+
+  # Capybara features specs
+  watch(%r{^app/views/(.+)/.*\.(erb|haml|slim)$})     { |m| "spec/features/#{m[1]}_spec.rb" }
+
+  # Turnip features and steps
+  watch(%r{^spec/acceptance/(.+)\.feature$})
+  watch(%r{^spec/acceptance/steps/(.+)_steps\.rb$})   { |m| Dir[File.join("**/#{m[1]}.feature")][0] || 'spec/acceptance' }
+end
+
+==end code
+
+
+12/13/14 Build Website
+
+1. Create tables for all the Lookups
+
+service_categories
+service_providers
+infractions
+disciplinary_responses
+guidance_interventions
+
+
+2. create models for lookup tables
+service_category.rb
+service_provider.rb
+infraction.rb
+disciplinary_response.rb
+guidance_intervention.rb
+
+2a. Create test for models
+need a file spec/models/service_category_spec.rb
+
+
+3. create tables for non-lookup tables
+referrals
+users
+schools
+students
+parents
+incident_logs
+school_districts
+roles
+school_systems
+
+4. create models for non-lookup tables
+referral.rb
+user.rb
+school.rb
+student.rb
+parent.rb
+incidents_log.rb
+school_district.rb
+school_system.rb
+role.rb
+
+5. Create the association
+
+6. create join table
+
+
+
+
+ Create seed files
+
+
+
+
+4. You have to be able to test all the connections in your database to make sure it works:
+schools.find
+schools.
+
+5.
+
+class RolesUsersJoinTable < ActiveRecord::Migration
+  def change
+    create_table :roles_users, id => false do |t|
+      t.integer :role_id
+      t.integer :user_id
+    end
+  end
+end
+
+
+class RoleUser < ActiveRecord::Base
+  attr_accessible(:role_id, :user_id)
+
+end
+
+class RolesUsersJoinTable < ActiveRecord::Migration
+  def change
+    create_table :role_users, :id => false do |t|
+      t.references :user
+      t.references :role
+    end
+    add_index :role_users, :user_id
+    add_index :role_users, :role_id
+  end
+end
+
+
+ <% l= @user.referrals.length %>
+ <% for idx in (0..l) %>
+<% @user.referrals.each do |referral| %>
+  names <%=  @user.referrals[idx].student %>
+<li><%= referral.comment.capitalize %></li>
+<% end %>
+  <% end %>
+
+   <% @referrals.each do |referral| %>
+    <%= @referral.comment ,user_referral_path(@user, referral ) %>
+  <% end %>
+
+NEED HELP WITH GETTING SERVICE PROVIDER FOR REFERRAL
+
+
+
+User.find_by_id(4).referrals[0].student.incident_logs
+this works but I cannot pull the info below
+  <td><% referral.student.incident_log %></td>
+
+    <td><%= referral.service_provider.name %></td>
+
+
+
+
+FORM_FOR
+If your resource has associations defined, for example, you want to add comments to the document given that the routes are set correctly:
+
+<%= form_for([@document, @comment]) do |f| %>
+ ...
+<% end %>
+Where @document = Document.find(params[:id]) and @comment = Comment.new.
+
+
+
+
+<!-- you should use the number 4 -->
+<!--
+<%= User.find_by_id(4).school.name %>
+<%= Referral.find_by_id(1).student.first_name %>
+<%= Student.all %>
+<%= IncidentLog.all %>
+
+ -->

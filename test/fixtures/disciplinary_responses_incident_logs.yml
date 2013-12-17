@@ -1,0 +1,15 @@
+disciplinary_responses_incident_logs_1:
+  disciplinary_response_id: 1
+  incident_log_id: 2
+
+disciplinary_responses_incident_logs_2:
+  disciplinary_response_id: 1
+  incident_log_id: 3
+
+disciplinary_responses_incident_logs_3:
+  disciplinary_response_id: 2
+  incident_log_id: 2
+
+disciplinary_responses_incident_logs_4:
+  disciplinary_response_id: 3
+  incident_log_id: 2

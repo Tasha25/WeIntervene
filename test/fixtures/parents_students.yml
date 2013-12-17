@@ -1,0 +1,15 @@
+parents_students_1:
+  parent_id: 1
+  student_id: 2
+
+parents_students_2:
+  parent_id: 1
+  student_id: 3
+
+parents_students_3:
+  parent_id: 2
+  student_id: 2
+
+parents_students_4:
+  parent_id: 3
+  student_id: 2

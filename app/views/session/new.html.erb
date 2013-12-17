@@ -1,0 +1,21 @@
+<h1> WeIntervene Log in </h1>
+
+<!-- We use form_tag here because we are not editing a resource. The form is submitted to a sessions_path  -->
+<%= form_tag login_path do %>
+  <div class="field">
+    <%= label_tag :email %>
+    <%= text_field_tag :email, params[:email] %>
+  </div>
+
+  <div class="field">
+    <%= label_tag :password %>
+    <%= password_field_tag :password %>
+  </div>
+
+  <div class="actions"><%= submit_tag "Log in" %></div>
+  <% end %>
+
+  <%= link_to "Back", root_path %>
+
+
+  <% #TODO fix login page %>

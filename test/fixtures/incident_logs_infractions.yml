@@ -1,0 +1,15 @@
+incident_logs_infractions_1:
+  incident_log_id: 1
+  infraction_id: 2
+
+incident_logs_infractions_2:
+  incident_log_id: 1
+  infraction_id: 3
+
+incident_logs_service_providers_3:
+  incident_log_id: 2
+  infraction_id: 2
+
+incident_logs_service_providers_4:
+  incident_log_id: 3
+  infraction_id: 2

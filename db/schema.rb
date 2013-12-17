@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131215162835) do
+ActiveRecord::Schema.define(:version => 20131217175433) do
 
   create_table "disciplinary_responses", :force => true do |t|
     t.string   "code"
@@ -47,8 +47,8 @@ ActiveRecord::Schema.define(:version => 20131215162835) do
   end
 
   create_table "incident_logs_infractions", :id => false, :force => true do |t|
-    t.integer "incident_logs_id"
-    t.integer "infractions_id"
+    t.integer "incident_log_id"
+    t.integer "infraction_id"
   end
 
   create_table "infractions", :force => true do |t|
@@ -210,6 +210,10 @@ ActiveRecord::Schema.define(:version => 20131215162835) do
     t.integer  "service_provider_id"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
+    t.string   "encrypted_password"
+    t.string   "salt"
   end
+
+  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
 
 end

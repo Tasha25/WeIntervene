@@ -1,0 +1,15 @@
+infractions_service_providers_10:
+  infraction_id: 1
+  service_provider_id: 2
+
+infractions_service_providers_11:
+  infraction_id: 1
+  service_provider_id: 3
+
+infractions_service_providers_12:
+  infraction_id: 2
+  service_provider_id: 2
+
+infractions_service_providers_13:
+  infraction_id: 3
+  service_provider_id: 2
