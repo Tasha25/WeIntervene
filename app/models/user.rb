@@ -10,6 +10,8 @@
 #  service_provider_id :integer
 #  created_at          :datetime         not null
 #  updated_at          :datetime         not null
+#  encrypted_password  :string(255)
+#  salt                :string(255)
 #
 
 class User < ActiveRecord::Base

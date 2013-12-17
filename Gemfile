@@ -63,6 +63,7 @@ group :development do
   gem "rails-erd"
   gem "better_errors"
   gem "terminal-notifier-guard"
+  gem "faker"
 end
 
 gem "simplecov", :require => false, :group => :test

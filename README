@@ -183,3 +183,6 @@ Where @document = Document.find(params[:id]) and @comment = Comment.new.
 <%= IncidentLog.all %>
 
  -->
+
+
+gem install faker

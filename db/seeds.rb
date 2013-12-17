@@ -6,28 +6,28 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-SchoolSystem.create(name: 'NYCDOE', contact_person: 'Yolanda Smith ', contact_email: 'ysmith@nycdoe.com', street1: ' 100 Lane',city: 'Bx', state: 'NY', zip_code: '11201', phone: '2123456789');
-SchoolSystem.create(name: 'Long Island', contact_person: 'Phil Smith ', contact_email: 'psmith@lidoe.com', street1: ' 200 Lane',city: 'Nassau', state: 'NY', zip_code: '10056', phone: '5163456789');
+SchoolSystem.create(name: 'NYCDOE', contact_person: 'Yolanda Smith ', contact_email: 'ysmith@nycdoe.com', street1: ' 100 Lane',city: 'Bx', state: 'NY', zip_code: '11201', phone: '2123456789')
+SchoolSystem.create(name: 'Long Island', contact_person: 'Phil Smith ', contact_email: 'psmith@lidoe.com', street1: ' 200 Lane',city: 'Nassau', state: 'NY', zip_code: '10056', phone: '5163456789')
 
 
-SchoolDistrict.create(name: 'District 10', contact_person: 'Don Lie', school_system_id: 1 );
+SchoolDistrict.create(name: 'District 10', contact_person: 'Don Lie', school_system_id: 1 )
 SchoolDistrict.create(name: 'District 10', contact_person: 'Jon New', school_system_id: 1 );
-SchoolDistrict.create(name: 'District 11', contact_person: 'Harry Tall', school_system_id: 2 );
+SchoolDistrict.create(name: 'District 11', contact_person: 'Harry Tall', school_system_id: 2 )
 
 
-School.create(name:'DWCHS', mission:' sine labore nihil', school_district_id: '2') ;
+School.create(name:'DWCHS', mission:' sine labore nihil', school_district_id: '2')
 School.create(name:'JFK', mission:' we have fun', school_district_id: '3')
 
 
-User.create(user_name: "ngreen", email: "ngreen@schools.nyc", school_id: '1', service_provider_id: '') ;
-User.create(user_name: "mcollins", email: "mcollins@schools.nyc", school_id: '1', service_provider_id: '');
-User.create(user_name: "wclarke", email: "wclarke@schools.nyc", school_id: '2', service_provider_id: '5');
+User.create(user_name: "ngreen", email: "ngreen@schools.nyc", school_id: '1', service_provider_id: '2', password: '1234', password_confirmation: '1234')
+User.create(user_name: "mcollins", email: "mcollins@schools.nyc", school_id: '1', service_provider_id: '')
+User.create(user_name: "wclarke", email: "wclarke@schools.nyc", school_id: '2', service_provider_id: '5')
 
-Role.create(title: "teacher");
-Role.create(title: "parent");
-Role.create(title: "social worker");
-Role.create(title: "dean");
-Role.create(title: "principal");
+Role.create(title: "teacher")
+Role.create(title: "parent")
+Role.create(title: "social worker")
+Role.create(title: "dean")
+Role.create(title: "principal")
 
 
 ServiceCategory.create(name: 'Parent outreach')
@@ -43,17 +43,17 @@ IncidentLog.create( comment: 'love issues, fight with girlfriend', user_id: '2' 
 IncidentLog.create( comment: 'peer mediation - group', user_id: '1' , student_id: '3' );
 
 
-ServiceProvider.create(name: 'Madison Square Boys & Girls Club',mission: 'The mission of Madison Square Boys & Girls Club is to save and enhance the lives of New York City boys and girls who by means of economic and/or social factors are most in need of its services.',image_url: 'http://www.chrisdraftfamilyfoundation.org/tools/events/files/madison-square-boys-and-girls-club-golf_rs-1.jpg',website: 'http://www.madisonsquare.org/site/PageServer',email: 'jpatuleia@madisonsquare.org',street1: '317 Madison Avenue, Suite 1110',street2: '',city: 'New York',state:'NY',zip_code: '10017',work_phone: '(212) 760-9600',fax: '',infraction_supported: '',other: ''
+ServiceProvider.create(name: 'Madison Square Boys & Girls Club',mission: 'The mission of Madison Square Boys & Girls Club is to save and enhance the lives of New York City boys and girls who by means of economic and/or social factors are most in need of its services.',image_url: 'http://www.chrisdraftfamilyfoundation.org/tools/events/files/madison-square-boys-and-girls-club-golf_rs-1.jpg',website: 'http://www.madisonsquare.org/site/PageServer', providers_email: 'jpatuleia@madisonsquare.org',street1: '317 Madison Avenue, Suite 1110',street2: '',city: 'New York',state:'NY',zip_code: '10017',work_phone: '(212) 760-9600',fax: '',infraction_supported: '',other: ''
 )
 
-ServiceProvider.create( name: 'Hidden Gems Archery' , mission: 'to bring archery to the masses', image_url:'http://www.hiddengemsarchery.com/wp-content/uploads/2013/02/cropped-Screen-Shot-2013-02-12-at-11.45.43-AM-e1360885247611.png',website: 'http://www.hiddengemsarchery.com/', providers_email: 'info@thehiddengems.com', street1: '180 Remson Street', street2: '', city:'Bronx', state:'NY', zip_code:'10469', work_phone:'254-247-4477', fax:'', infraction_supported:'',other:'',
+ServiceProvider.create( name: 'Hidden Gems Archery' , mission: 'to bring archery to the masses', image_url:'http://www.hiddengemsarchery.com/wp-content/uploads/2013/02/cropped-Screen-Shot-2013-02-12-at-11.45.43-AM-e1360885247611.png',website: 'http://www.hiddengemsarchery.com/', contact_person: 'q', contact_email:'q@hga@aol.com', providers_email: 'info@thehiddengems.com', street1: '180 Remson Street', street2: '', city:'Bronx', state:'NY', zip_code:'10469', work_phone:'254-247-4477', fax:'', infraction_supported:'',other:'',
 )
 ServiceProvider.create( name: 'Cardinal McCloskey' , mission: 'Our At-Risk Services’ mission is to promote a safe and nurturing environment for at-risk children and youth and the goal is to keep children safe, prevent abuse and strengthen biological families.', image_url: '', website: 'http://www.cmcs.org/', providers_email: 'MHess@cmcs.org', street1: '953 Southern Blvd.', street2: 'Room 303', city:'Bronx', state:'NY', zip_code:'10459', work_phone:'718-542-0255', fax:'', infraction_supported:'', other:'',
 )
 
-Student.create(first_name: 'John', last_name: 'Doe', identification_number: '123456789', address1: '901 Broadway', date_of_birth: '12/13/99', school_id:'1');
-Student.create(first_name: 'Clarissa', last_name: 'Burke', identification_number: '11122233', address1: '902 Broadway',date_of_birth: '1/19/98', school_id:'1');
-Student.create(first_name: 'Tom', last_name: 'Hanks', identification_number: '237849679', address1: '903 Broadway', date_of_birth: '2/10/97', school_id:'2');
+Student.create(image_url: 'http://api.randomuser.me/0.2/portraits/men/20.jpg', first_name: 'John', last_name: 'Doe', identification_number: '123456789', address1: '901 Broadway', date_of_birth: '12/13/99', school_id:'1');
+Student.create(imnage_url: 'http://api.randomuser.me/?seed=goldenFrog',first_name: 'Clarissa', last_name: 'Burke', identification_number: '11122233', address1: '902 Broadway',date_of_birth: '1/19/98', school_id:'1');
+Student.create(image_url: 'http://api.randomuser.me/?seed=smallSnake', first_name: 'Tom', last_name: 'Hanks', identification_number: '237849679', address1: '903 Broadway', date_of_birth: '2/10/97', school_id:'2');
 
 Parent.create(first_name: 'Harold', last_name: 'Doe', street1: '900 Broadway', work_phone: '234564662', email: 'harold@gmail.com');
 Parent.create(first_name: 'Fiona', last_name: 'Taylor', street1: '901 Broadway', work_phone: '12233234', email: 'fiona@gmail.com');
