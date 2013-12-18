@@ -24,6 +24,9 @@ class User < ActiveRecord::Base
    has_many :incident_logs
    has_and_belongs_to_many :roles
 
+
+
+
    # has_secure_password
 
    email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i

@@ -19,11 +19,4 @@ The referrals that you have are
 </br>
 <div>
 
-  <h1> Referral Form </h1>
-  <%= form_for([@user, @referral]) do |f| %>
 
-  Comment: <%= f.text_field :comment %><br />
-  <%= f.select "student_id", options_from_collection_for_select(Student.all, "id", "first_name", "last_name") %></br>
-  <%= f.submit %>
-  <%= f.hidden_field "user_id", :value=> @user.id %>
-<% end %>

@@ -30,6 +30,7 @@ School.create(name:'JFK', mission:' we have fun', school_district_id: '3')
 u1 = User.create(user_name: "ngreen", email: "ngreen@schools.nyc", school_id: '1', service_provider_id: '2', password: '123456', password_confirmation: '123456')
 u2 = User.create(user_name: "mcollins", email: "mcollins@schools.nyc", school_id: '1', service_provider_id: '2', password: '123456', password_confirmation: '123456')
 u3 = User.create(user_name: "wclarke", email: "wclarke@schools.nyc", school_id: '2', service_provider_id: '3', password: '123456', password_confirmation: '123456')
+u4 = User.create(user_name: "mclarke", email: "mclarke@schools.nyc", school_id: '2', service_provider_id: '3', password: '123456', password_confirmation: '123456')
 
 Role.create(title: "teacher")
 Role.create(title: "parent")

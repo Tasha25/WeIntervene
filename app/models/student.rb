@@ -35,5 +35,8 @@ class Student < ActiveRecord::Base
   has_and_belongs_to_many :parents
   has_many :incident_logs
 
+   def full_name
+    "#{first_name} #{last_name}"
+   end
 
 end

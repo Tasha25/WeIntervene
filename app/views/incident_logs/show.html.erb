@@ -1,0 +1,31 @@
+<%= @user.user_name.capitalize %>
+
+You are creating an incident
+  <div>
+      <h1> Incident Log </h1>
+
+      <%= form_for([@user, @incident_log]) do |f| %>
+      Student: <%= f.select "student_id",
+      options_from_collection_for_select(Infraction.all, :id, :code) %></br>
+      Comment: <%= f.text_field "code" %></br>
+
+      Disciplinary Response:
+      <%= f.select "service_provider_ids",
+      options_from_collection_for_select(ServiceProvider.all, :id, :name) %> </br>
+
+      <% DisciplinaryResponse.all.each do |disciplinary_response|  %>
+      <%=disciplinary_response.name %>
+      <input type="checkbox" name="disciplinary_response_ids" value="<%=disciplinary_response.id%>">
+      <% end %> </br>
+
+      Guidance Intervention:
+      <% GuidanceIntervention.all.each do |guidance_intervention|  %>
+      <%=guidance_intervention.name %>
+      <input type="checkbox" name="guidance_intervention_ids" value="<%=guidance_intervention.id%>">
+      <% end %>
+
+
+      <%= f.submit %>
+      <%= f.hidden_field "user_id", :value=> @user.id %>
+      <% end %>
+    </div>

@@ -1,0 +1,11 @@
+.student-image {
+  height: 100px;
+  width: 100px;
+  display: inline-block;
+}
+.student-demographic { display: inline-block; }
+.student-demographic span { display: block; }
+.student-demographic .name {
+  font-weight: bold;
+  font-size: 110%;
+}

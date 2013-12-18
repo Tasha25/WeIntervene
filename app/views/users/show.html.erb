@@ -5,21 +5,85 @@
 The referrals that you have are
 
 <div class="referrals">
- <table class="referral-table">
+
+ <table class="table table-striped">
+  <tr>
+    <td> Date</td>
+    <td> Student</td>
+    <td> Comment</td>
+    <td> Resource</td>
+  </tr>
   <% @user.referrals.each do |referral|  %>
   <tr>
     <td><%= referral.student.created_at.strftime("%m/%d/%Y") %></td>
     <td><%= referral.student.first_name %></td>
     <td><%= referral.comment.capitalize %></td>
     <td><% referral.service_providers.each do |service_provider| %>
-      <% service_provider %></td>
+      <%= service_provider.name %></td>
       <%end %>
     </tr>
     <%end  %>
   </table>
-</div>
-</br>
-<div>
+  <div>
 
+    <div>
+      <h1> Referral Form </h1>
+
+      <%= form_for([@user, @referral]) do |f| %>
+      Student: <%= f.select "student_id",
+      options_from_collection_for_select(Student.all, :id, :full_name) %></br>
+      Comment: <%= f.text_field "comment" %></br>
+
+      Service Proposed: <%= f.select "service_provider_ids",
+      options_from_collection_for_select(ServiceProvider.all, :id, :name) %> </br>
+
+      <% ServiceProvider.all.each do |service_provider|  %>
+      <%=service_provider.name %>
+      <input type="checkbox" name="service_provider_ids" value="<%=service_provider.id%>">
+      <% end %> </br>
+
+      Service Category:
+      <% ServiceCategory.all.each do |service_category|  %>
+      <%=service_category.name %>
+      <input type="checkbox" name="service_categories_ids" value="<%=service_category.id%>">
+      <% end %>
+
+
+      <%= f.submit %>
+      <%= f.hidden_field "user_id", :value=> @user.id %>
+      <% end %>
+    </div>
+
+</br>
+
+You are creating an incident
+  <div>
+      <h1> Incident Log </h1>
+
+      <%= form_for([@user, @incident_log]) do |f| %>
+      Student: <%= f.select "student_id",
+      options_from_collection_for_select(Infraction.all, :id, :code) %></br>
+      Comment: <%= f.text_field "code" %></br>
+
+      Disciplinary Response:
+      <%= f.select "service_provider_ids",
+      options_from_collection_for_select(ServiceProvider.all, :id, :name) %> </br>
+
+      <% DisciplinaryResponse.all.each do |disciplinary_response|  %>
+      <%=disciplinary_response.name %>
+      <input type="checkbox" name="disciplinary_response_ids" value="<%=disciplinary_response.id%>">
+      <% end %> </br>
+
+      Guidance Intervention:
+      <% GuidanceIntervention.all.each do |guidance_intervention|  %>
+      <%=guidance_intervention.name %>
+      <input type="checkbox" name="guidance_intervention_ids" value="<%=guidance_intervention.id%>">
+      <% end %>
+
+
+      <%= f.submit %>
+      <%= f.hidden_field "user_id", :value=> @user.id %>
+      <% end %>
+    </div>
 
 
