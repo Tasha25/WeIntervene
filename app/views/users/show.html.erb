@@ -6,38 +6,20 @@ The referrals that you have are
 
 <div class="referrals">
  <table class="referral-table">
-<% @user.referrals.each do |referral|  %>
-<tr>
-  <td><%= referral.student.created_at.strftime("%m/%d/%Y") %>
-  <td><%= referral.student.first_name %></td>
-  <td><%= referral.comment.capitalize %></td>
-    <%= referral.inspect %>
-    <td><%= referral.service_providers.each do |service_provider| %>
-      <% service_provider %>
+  <% @user.referrals.each do |referral|  %>
+  <tr>
+    <td><%= referral.student.created_at.strftime("%m/%d/%Y") %></td>
+    <td><%= referral.student.first_name %></td>
+    <td><%= referral.comment.capitalize %></td>
+    <td><% referral.service_providers.each do |service_provider| %>
+      <% service_provider %></td>
       <%end %>
-</tr>
-<%end  %>
-</table>
+    </tr>
+    <%end  %>
+  </table>
 </div>
 </br>
 <div>
-
-  <h1> Referral Form </h1>
-  <%= form_for([@user, @referral]) do |f| %>
-
-  Comment: <%= f.text_field :comment %><br />
-  <%= f.select "student_id", options_from_collection_for_select(Student.all, "id", "first_name", "last_name") %></br>
-  <%= f.submit %>
-  <%= f.hidden_field "user_id", :value=> @user.id %>
-<% end %>
-
-
-</div>
-<!--
-form_for doesn't need to know the student because it is already in the database
-It isn't creating a new student and it is creating a value for the referral to make the relationship
-So you don't need to put @student in the paramaters of the form_for function
--->
 
 
 

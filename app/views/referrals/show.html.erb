@@ -1,0 +1,29 @@
+<%= @user.user_name.capitalize %> from <%= @user.school.name %><br><br>
+
+The referrals that you have are
+
+<div class="referrals">
+ <table class="referral-table">
+  <% @user.referrals.each do |referral|  %>
+    <tr>
+      <td><%= referral.student.created_at.strftime("%m/%d/%Y") %>
+      <td><%= link_to referral.student.first_name.capitalize + ' ' + referral.student.last_name.capitalize, student_referral_path(referral.student, referral) %></td>
+      <td><%= referral.comment.capitalize %></td>
+      <% referral.service_providers.each do |service_provider| %>
+        <td><%= service_provider.name %></td>
+      <% end %>
+    </tr>
+  <% end %>
+</table>
+</div>
+</br>
+<div>
+
+  <h1> Referral Form </h1>
+  <%= form_for([@user, @referral]) do |f| %>
+
+  Comment: <%= f.text_field :comment %><br />
+  <%= f.select "student_id", options_from_collection_for_select(Student.all, "id", "first_name", "last_name") %></br>
+  <%= f.submit %>
+  <%= f.hidden_field "user_id", :value=> @user.id %>
+<% end %>

@@ -13,4 +13,8 @@ class ReferralsController < ApplicationController
     end
   end
 
+  def show
+    @student = Student.find_by_id(params[:student_id])
+  end
+
 end

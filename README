@@ -1,4 +1,131 @@
+roles_users
+u1 = User.create
+u1.roles << Role.all[0]
+
+
+
+service_categories_service_providers
+s1 = ServiceProvider.create
+s1.service_categories << ServiceCategory.all[0]
+
+
+service_providers_referrals
+r1 = Referral.create
+r1.service_providers << ServiceProvider.all[0]
+
+
+infractions_service_providers
+sp1 = ServiceProvider.create
+sp1.infractions << Infraction.all[0]
+
+
+infractions_incident_logs
+inc1 = IncidentLog.create
+inc1.infractions << Infraction.all[0]
+
+
+parents_students
+s1 = Student.create
+s1.parents << Parent.all[0]
+
+guidance_interventions_incident_logs
+inc1 = IncidentLog.create
+inc1.guidance_interventions << GuidanceIntervention.all[0]
+
+
+disciplinary_responses_incident_logs
+inc1 = IncidentLog.create
+inc1.disciplinary_responses << DisciplinaryResponse.all[0]
+
+
+
+=== code that is supposed to help me iterate over array and get the join table... having trouble with it
+
+
+ids = [1,2,3]
+ids.each do |provider_id|
+ServiceProvider.find_by_id(provider_id).infractions.find_by_id(ids.sample)
+end
+
+ids = [1, 2, 3];
+ids.each do |provider_id|;
+ServiceProvider.create(service_provider_id: provider_id, infraction_id: ids.sample);
+end
+
+ids = [1,2, 3]
+ids.each do |infraction_id|
+  infraction = Infraction.find_by_id(infraction_id)
+  infraction.incident_logs = [IncidentLog.find_by_id(ids.sample)]
+end
+
+ids = [1,2,3]
+ids.each do |disciplinary_response_id|
+  disciplinary_response = DisciplinaryResponse.find_by_id(disciplinary_response_id)
+  disciplinary_response.incident_logs = [IncidentLog.find_by_id(ids.sample)]
+end
+
+ids = [1,2,3,4]
+ids.each do |guidance_intervention_id|
+  guidance_intervention = GuidanceIntervention.find_by_id(guidance_intervention_id)
+  guidance_intervention.incident_logs = [IncidentLog.find_by_id(ids.sample)]
+end
+
+ids = [1,2,3]
+ids.each do |service_category_id|
+  service_category = ServiceCategory.find_by_id(service_category_id)
+  service_category.service_providers = [ServiceProvider.find_by_id(ids.sample)]
+end
+
+ids = [1, 2, 3]
+ids.each do |provider_id|
+ service_provider = ServiceProvider.find_by_id(provider_id)
+ service_provider.infractions = [Infraction.find_by_id(ids.sample)]
+end
+
+
+=== end
+
+
+Explain alot of about ruby and methods: http://rubyhacker.com/coralbook/ch3.html
+
+
+Other ways of working:
+
+# ids = [1,2,3]
+# ids.each do |provider_id|
+# ServiceProvider.find_by_id(provider_id).infractions.find_by_id(ids.sample)
+# end
+
+# ids = [1, 2, 3];
+# ids.each do |provider_id|;
+# ServiceProvider.create(service_provider_id: provider_id, infraction_id: ids.sample);
+# end
+
+
+Things to do tomorrow
+
+Include addresses for students in the models
+Include phone numbers in the models
+Include titles
+
+
 12/17/13
+
+ #encoding: utf-8
+
+SchoolSystem.delete_all
+SchoolDistrict.delete_all
+School.delete_all
+User.delete_all
+Role.delete_all
+ServiceCategory.delete_all
+IncidentLog.delete_all
+Student.delete_all
+Parent.delete_all
+DisciplinaryResponse.delete_all
+GuidanceIntervention.delete_all
+Infraction.delete_all
+ServiceProvider.delete_all
 
 
 ==Forms
