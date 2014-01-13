@@ -1,4 +1,7 @@
 class IncidentLogsController < ApplicationController
+
+  before_filter :require_authentication
+
   def index
     @incident_log = IncidentLog.all
   end
@@ -15,6 +18,13 @@ class IncidentLogsController < ApplicationController
 
   def show
     @student = Student.find_by_id(params[:student_id])
+  end
+
+
+  private
+  def require_authentication
+    redirect_to login_path if not session[:user_id]
+
   end
 
 end

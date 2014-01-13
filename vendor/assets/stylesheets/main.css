@@ -1,11 +1,12 @@
-.student-image {
-  height: 100px;
-  width: 100px;
-  display: inline-block;
-}
 .student-demographic { display: inline-block; }
 .student-demographic span { display: block; }
+.student-demographic img { padding-left: 0; }
 .student-demographic .name {
   font-weight: bold;
-  font-size: 110%;
+  font-size: 120%;
 }
+.student-demographic .counselor, .student-demographic .cohort {
+  display: inline;
+  font-weight: bold;
+}
+.referral-form {}

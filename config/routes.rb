@@ -7,12 +7,14 @@ Weintervene::Application.routes.draw do
 
 
 
+
   resources :schools do
     resources :users
     resources :students
   end
 
   resources :users do
+    match '/referrals/new_no_pic' => 'referrals#new_no_pic', as: :no_pic
     resources :referrals
     resources :incident_logs
   end

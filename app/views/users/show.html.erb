@@ -1,89 +1,61 @@
+<div class="row">
+  <div class="col-md-12">
+    <%= link_to 'Create New Referral', "/users/#{@user.id}/referrals/new_no_pic", class: 'btn btn-primary btn-small' %>
+  </div>
+</div>
+<div class="incidents">
+  <h2>Incidents</h2>
+  <table class="table table-striped">
+    <tr>
+      <td> Date</td>
+      <td> Comment</td>
+      <td> Infraction Code</td>
+      <td> Infraction Description</td>
+      <td> Actions</td>
+    </tr>
 
+    <% @user.incident_logs.each do |log|  %>
+      <tr>
+        <td><%= log.created_at.strftime("%m/%d/%Y") %></td>
+        <td><%= log.comment %></td>
+        <% if (log.infractions.length > 0) %>
+          <% log.infractions.each do |infraction| %>
+            <td><%= infraction.code %></td>
+            <td><%= infraction.description %></td>
+          <% end %>
+        <% else %>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+        <% end %>
 
-<%= @user.user_name.capitalize %> from <%= @user.school.name %><br><br>
-
-The referrals that you have are
+        <td><%= link_to 'Make a Referral', new_student_referral_url(log.student), class: 'btn btn-primary btn-small' %></td>
+      </tr>
+    <% end  %>
+  </table>
+</div>
 
 <div class="referrals">
-
- <table class="table table-striped">
-  <tr>
-    <td> Date</td>
-    <td> Student</td>
-    <td> Comment</td>
-    <td> Resource</td>
-  </tr>
-  <% @user.referrals.each do |referral|  %>
-  <tr>
-    <td><%= referral.student.created_at.strftime("%m/%d/%Y") %></td>
-    <td><%= referral.student.first_name %></td>
-    <td><%= referral.comment.capitalize %></td>
-    <td><% referral.service_providers.each do |service_provider| %>
-      <%= service_provider.name %></td>
-      <%end %>
+  <h2>Referrals</h2>
+  <table class="table table-striped">
+    <tr>
+      <td> Date</td>
+      <td> Student</td>
+      <td> Comment</td>
+      <td> Resource</td>
     </tr>
-    <%end  %>
+    <% @user.referrals.each do |referral|  %>
+
+      <tr>
+        <td><%= referral.student.created_at.strftime("%m/%d/%Y") rescue nil %></td>
+        <td><%= referral.student.first_name rescue nil %></td>
+        <td><%= referral.comment.capitalize rescue nil %></td>
+        <% referral.service_providers.each do |service_provider| %>
+          <td><%= service_provider.name %></td>
+        <% end %>
+      </tr>
+    <% end  %>
   </table>
-  <div>
 
-    <div>
-      <h1> Referral Form </h1>
-
-      <%= form_for([@user, @referral]) do |f| %>
-      Student: <%= f.select "student_id",
-      options_from_collection_for_select(Student.all, :id, :full_name) %></br>
-      Comment: <%= f.text_field "comment" %></br>
-
-      Service Proposed: <%= f.select "service_provider_ids",
-      options_from_collection_for_select(ServiceProvider.all, :id, :name) %> </br>
-
-      <% ServiceProvider.all.each do |service_provider|  %>
-      <%=service_provider.name %>
-      <input type="checkbox" name="service_provider_ids" value="<%=service_provider.id%>">
-      <% end %> </br>
-
-      Service Category:
-      <% ServiceCategory.all.each do |service_category|  %>
-      <%=service_category.name %>
-      <input type="checkbox" name="service_categories_ids" value="<%=service_category.id%>">
-      <% end %>
-
-
-      <%= f.submit %>
-      <%= f.hidden_field "user_id", :value=> @user.id %>
-      <% end %>
-    </div>
-
-</br>
-
-You are creating an incident
-  <div>
-      <h1> Incident Log </h1>
-
-      <%= form_for([@user, @incident_log]) do |f| %>
-      Student: <%= f.select "student_id",
-      options_from_collection_for_select(Infraction.all, :id, :code) %></br>
-      Comment: <%= f.text_field "code" %></br>
-
-      Disciplinary Response:
-      <%= f.select "service_provider_ids",
-      options_from_collection_for_select(ServiceProvider.all, :id, :name) %> </br>
-
-      <% DisciplinaryResponse.all.each do |disciplinary_response|  %>
-      <%=disciplinary_response.name %>
-      <input type="checkbox" name="disciplinary_response_ids" value="<%=disciplinary_response.id%>">
-      <% end %> </br>
-
-      Guidance Intervention:
-      <% GuidanceIntervention.all.each do |guidance_intervention|  %>
-      <%=guidance_intervention.name %>
-      <input type="checkbox" name="guidance_intervention_ids" value="<%=guidance_intervention.id%>">
-      <% end %>
-
-
-      <%= f.submit %>
-      <%= f.hidden_field "user_id", :value=> @user.id %>
-      <% end %>
-    </div>
+</div>
 
 

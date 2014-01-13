@@ -1,4 +1,6 @@
 class StudentsController < ApplicationController
+  before_filter :require_authentication
+
   def index
     @students = Student.all
   end
@@ -6,6 +8,7 @@ class StudentsController < ApplicationController
   def new
     @user = User.find(params[:user_id])
     @student = Student.new
+
   end
 
   def create
@@ -39,6 +42,11 @@ class StudentsController < ApplicationController
     end
   end
 
+  private
+  def require_authentication
+    redirect_to login_path if not session[:user_id]
+
+  end
 end
 
 

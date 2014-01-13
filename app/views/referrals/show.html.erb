@@ -3,20 +3,23 @@
 The referrals that you have are
 
 <div class="referrals">
- <table class="referral-table">
+
+ <table class="table table-striped">
+  <tr>
+    <td> Date</td>
+    <td> Student</td>
+    <td> Comment</td>
+    <td> Resource</td>
+  </tr>
   <% @user.referrals.each do |referral|  %>
-    <tr>
-      <td><%= referral.student.created_at.strftime("%m/%d/%Y") %>
-      <td><%= link_to referral.student.first_name.capitalize + ' ' + referral.student.last_name.capitalize, student_referral_path(referral.student, referral) %></td>
-      <td><%= referral.comment.capitalize %></td>
-      <% referral.service_providers.each do |service_provider| %>
-        <td><%= service_provider.name %></td>
-      <% end %>
+  <tr>
+    <td><%= referral.student.created_at.strftime("%m/%d/%Y") %></td>
+    <td><%= referral.student.first_name %></td>
+    <td><%= referral.comment.capitalize %></td>
+    <td><% referral.service_providers.each do |service_provider| %>
+      <%= service_provider.name %></td>
+      <%end %>
     </tr>
-  <% end %>
-</table>
-</div>
-</br>
-<div>
-
-
+    <%end  %>
+  </table>
+  <div>
