@@ -4,10 +4,11 @@
   </div>
 </div>
 <div class="incidents">
-  <h2>Incidents</h2>
+  <h2> <%= @user.user_name.capitalize %>'s Incidents</h2>
   <table class="table table-striped">
     <tr>
       <td> Date</td>
+      <td> Student Name</td>
       <td> Comment</td>
       <td> Infraction Code</td>
       <td> Infraction Description</td>
@@ -17,6 +18,7 @@
     <% @user.incident_logs.each do |log|  %>
       <tr>
         <td><%= log.created_at.strftime("%m/%d/%Y") %></td>
+        <td> <%= log.student.first_name %></td>
         <td><%= log.comment %></td>
         <% if (log.infractions.length > 0) %>
           <% log.infractions.each do |infraction| %>
@@ -35,7 +37,7 @@
 </div>
 
 <div class="referrals">
-  <h2>Referrals</h2>
+  <h2> <%= @user.user_name.capitalize %>'s Referrals</h2>
   <table class="table table-striped">
     <tr>
       <td> Date</td>
@@ -46,7 +48,7 @@
     <% @user.referrals.each do |referral|  %>
 
       <tr>
-        <td><%= referral.student.created_at.strftime("%m/%d/%Y") rescue nil %></td>
+        <td><%= referral.created_at.strftime("%m/%d/%Y") rescue nil %></td>
         <td><%= referral.student.first_name rescue nil %></td>
         <td><%= referral.comment.capitalize rescue nil %></td>
         <% referral.service_providers.each do |service_provider| %>
