@@ -1,4 +1,10 @@
-Place logo in file to pull up off line.
+Place logo in assets file to pull up off line.
+
+Have the ability to see the referrals and cases for all deans and then be able to restrict to admins specifically.
+
+Have a form where the Service Providers information can be placed.
+
+
 
 On user's page
 user should see a search field to lookup students

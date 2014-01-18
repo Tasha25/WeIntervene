@@ -1,8 +1,44 @@
+
+<% #TODO Look at how to show one person picture and to be able to search for the rest %>
+
+<div class="row">
+  <section class="col-md-12">
+  Add Service Provider
+</section>
+</div>
+
+
+<div class="row">
+ <% @student.each do |student| %>
+ <div class="student-demographic col-md-offset-2 col-md-8">
+
+   <img class="col-sm-4" src="<%= student.image_url %>">
+   <div class="student-info col-md-6">
+    <span class="name"><%= "#{student.first_name} #{student.last_name}" %></span>
+    <span><%= student.identification_number %></span>
+    <span><%= student.date_of_birth %></span>
+    <address>
+     <%= student.street1 %>
+     <%= student.city %>, <%= student.state %> <%= student.zip_code %>
+   </address>
+   <div>
+     <span class="counselor">Counselor</span>&nbsp;<%= student.counselor %>
+   </div>
+   <div>
+     <span class="cohort">Cohort</span>&nbsp;<%= student.cohort %>
+   </div>
+ </div>
+</div>
+<% end %>
+</div>
+
+
 <div class="row">
   <div class="col-md-12">
     <%= link_to 'Create New Referral', "/users/#{@user.id}/referrals/new_no_pic", class: 'btn btn-primary btn-small' %>
   </div>
-</div>
+</div>  <!-- Create New Referral button -->
+
 <div class="incidents">
   <h2> <%= @user.user_name.capitalize %>'s Incidents</h2>
   <table class="table table-striped">
@@ -16,25 +52,25 @@
     </tr>
 
     <% @user.incident_logs.each do |log|  %>
-      <tr>
-        <td><%= log.created_at.strftime("%m/%d/%Y") %></td>
-        <td> <%= log.student.first_name %></td>
-        <td><%= log.comment %></td>
-        <% if (log.infractions.length > 0) %>
-          <% log.infractions.each do |infraction| %>
-            <td><%= infraction.code %></td>
-            <td><%= infraction.description %></td>
-          <% end %>
-        <% else %>
-          <td>&nbsp;</td>
-          <td>&nbsp;</td>
-        <% end %>
+    <tr>
+      <td><%= log.created_at.strftime("%m/%d/%Y") %></td>
+      <td> <%= log.student.first_name %></td>
+      <td><%= log.comment %></td>
+      <% if (log.infractions.length > 0) %>
+      <% log.infractions.each do |infraction| %>
+      <td><%= infraction.code %></td>
+      <td><%= infraction.description %></td>
+      <% end %>
+      <% else %>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <% end %>
 
-        <td><%= link_to 'Make a Referral', new_student_referral_url(log.student), class: 'btn btn-primary btn-small' %></td>
-      </tr>
+      <td><%= link_to 'Make a Referral', new_student_referral_url(log.student), class: 'btn btn-primary btn-small' %></td>
+    </tr>
     <% end  %>
   </table>
-</div>
+</div> <!-- End Incidents table -->
 
 <div class="referrals">
   <h2> <%= @user.user_name.capitalize %>'s Referrals</h2>
@@ -47,17 +83,17 @@
     </tr>
     <% @user.referrals.each do |referral|  %>
 
-      <tr>
-        <td><%= referral.created_at.strftime("%m/%d/%Y") rescue nil %></td>
-        <td><%= referral.student.first_name rescue nil %></td>
-        <td><%= referral.comment.capitalize rescue nil %></td>
-        <% referral.service_providers.each do |service_provider| %>
-          <td><%= service_provider.name %></td>
-        <% end %>
-      </tr>
+    <tr>
+      <td><%= referral.created_at.strftime("%m/%d/%Y") rescue nil %></td>
+      <td><%= referral.student.first_name rescue nil %></td>
+      <td><%= referral.comment.capitalize rescue nil %></td>
+      <% referral.service_providers.each do |service_provider| %>
+      <td><%= service_provider.name %></td>
+      <% end %>
+    </tr>
     <% end  %>
   </table>
 
-</div>
+</div> <!-- End Referrals Table -->
 
 
