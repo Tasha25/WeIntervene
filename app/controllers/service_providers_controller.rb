@@ -14,7 +14,10 @@ class ServiceProvidersController < ApplicationController
   end
 
   def create
+    # id = params[:service_category_ids].collect(&:to_i)
+    # @service = ServiceCategory.find_by_id(id)
     @service_provider = ServiceProvider.new(params[:service_provider])
+    binding.pry
     if @service_provider.save
       flash[:notice] = 'Service Provider created.'
       redirect_to user_service_providers_url

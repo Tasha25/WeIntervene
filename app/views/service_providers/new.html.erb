@@ -16,26 +16,28 @@
 #  infraction_supported :string(255)
  -->
 
+<div>
 <h2> Add Service Provider </h2>
 
-    <%= form_tag({:controller => "service_providers", :action => "create"}, :method => "post") do %>
+    <%= form_tag({:controller => "service_providers", :action => "create"}, :method => "post", :multipart => true) do %>
     <%= label_tag :name %>
     <%= text_field(:service_provider, :name) %>
     <%= label_tag :mission %>
     <%= text_field(:service_provider, :mission) %>
 
-     <%= label_tag(:service_category) %>
+     <%= label_tag :service_category %>
             <% @service_categories.each do |service_category|  %>
                <div class="checkbox">
                   <label>
-                     <input type="checkbox" name="service_category_ids" value="<%= service_category.id %>">
-                    <%= check_box_tag(:service_category) %>
+                    <%= check_box_tag "service_provider[service_category_ids][]", service_category.id, false, :id => "service_category_id_#{service_category.id}" %>
                      <%= service_category.name.capitalize %>
                   </label>
                </div>
-            <% end %>
+        <% end %>
 
-      <%  hidden_field_tag "service_category_ids", @service_provider.id %>
       <%= submit_tag("Service Provider") %>
     <% end %>
-  </div
+  </div>
+
+
+
