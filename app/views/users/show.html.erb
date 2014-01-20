@@ -1,15 +1,22 @@
 
 
 
-<%= link_to 'Add Service Provider', "/users/#{@user.id}/service_providers/new" %>
-<%= link_to 'Show all Service Providers', "/users/#{@user.id}/service_providers" %>
+<ul class="nav nav-pills pull-right">
+  <li class="active">
+    <li> <%= link_to 'Home', user_path(current_user) %></li>
+  <li><a href="#">My Profile</a></li>
+</ul>
 
 
-
+<div class="row">
+  <div class="col-md-12">
+    <%= link_to 'Create New Referral', "/users/#{@user.id}/referrals/new_no_pic", class: 'btn btn-primary btn-small' %>
+    <%= link_to 'Add Service Provider', "/users/#{@user.id}/service_providers/new", class: 'btn btn-primary btn-small'  %>
+  <%= link_to 'Show all Service Providers', "/users/#{@user.id}/service_providers", class: 'btn btn-primary btn-small'  %>
+  </div>
+</div>
 <% #TODO Look at how to show one person picture and to be able to search for the rest %>
-
-
-
+<br>
 <div class="row">
  <% @student.each do |student| %>
  <div class="student-demographic col-md-offset-2 col-md-8">
@@ -35,11 +42,7 @@
 </div>
 
 
-<div class="row">
-  <div class="col-md-12">
-    <%= link_to 'Create New Referral', "/users/#{@user.id}/referrals/new_no_pic", class: 'btn btn-primary btn-small' %>
-  </div>
-</div>  <!-- Create New Referral button -->
+ <!-- Create New Referral button -->
 
 <div class="incidents">
   <h2> <%= @user.user_name.capitalize %>'s Incidents</h2>
@@ -97,5 +100,6 @@
   </table>
 
 </div> <!-- End Referrals Table -->
+
 
 
