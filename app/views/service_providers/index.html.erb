@@ -15,11 +15,13 @@
   <tr>
     <td> <%= service_provider.name %></td>
     <td> <%= service_provider.mission %></td>
-
+    <td>
+       <% sc = [ ]  %>
       <% service_provider.service_categories.each do |service_category| %>
-      <td> <%= service_category.name  %></td>
+       <% sc << service_category.name %>
       <% end %>
-
+      <%= sc.join(', ')  %>
+    </td>
     <td class="actions">
       <%= link_to("Show", {:action => 'show', :id => service_provider.id}, :class => 'action show') %>
    <%= link_to("Edit", '#', :class => 'action edit') %>
