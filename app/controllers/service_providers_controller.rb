@@ -9,6 +9,7 @@ class ServiceProvidersController < ApplicationController
   end
 
   def show
+    @service_provider = ServiceProvider.find(params[:id])
   end
 
   def create

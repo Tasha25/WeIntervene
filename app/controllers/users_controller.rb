@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def index
-    @user = User.all
+    redirect_to new_user_url
   end
 
   def new
