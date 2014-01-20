@@ -7,12 +7,18 @@
   <tr class="header">
     <th> Name</th>
     <th> Mission</th>
+    <th> Service Category</th>
+    <th> Action </th>
   </tr>
 
   <% @service_providers.each do |service_provider| %>
   <tr>
     <td> <%= service_provider.name %></td>
     <td> <%= service_provider.mission %></td>
+
+      <% service_provider.service_categories.each do |service_category| %>
+      <td> <%= service_category.name  %></td>
+      <% end %>
 
     <td class="actions">
       <%= link_to("Show", {:action => 'show', :id => service_provider.id}, :class => 'action show') %>

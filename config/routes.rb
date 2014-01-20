@@ -3,6 +3,7 @@ Weintervene::Application.routes.draw do
   get '/signup' => "users#new"
   get '/login' => 'session#new'
   post '/login' => 'session#create'
+  post 'posts' => 'service_providers#create'
   delete '/logout' => 'session#destroy'
 
 
@@ -16,6 +17,7 @@ Weintervene::Application.routes.draw do
     resources :referrals
     resources :incident_logs
     resources :service_providers
+
   end
 
    resources :students do

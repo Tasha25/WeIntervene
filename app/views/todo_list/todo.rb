@@ -33,3 +33,22 @@ User should be able to:
 - email guardian the referral
 - email organization about reccommendation
 
+
+This might be the way to iterate over a column in a table
+==code start
+
+       <th><%= f.label(:service_category) %></th>
+            <% @service_categories.each do |service_category|  %>
+               <div class="checkbox">
+                  <label>
+                     <input type="checkbox" name="service_category_ids" value="<%= service_category.id %>">
+                   <td>  <%= f.check_box(:service_category) %> </td>
+                     <%= service_category.name.capitalize %>
+                  </label>
+               </div>
+            <% end %>
+         </div>
+    </th>
+
+== code end
+  </table>
