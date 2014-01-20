@@ -1,0 +1,25 @@
+
+<div class="Service Provider List">
+  <h2> Service Providers </h2>
+
+<table class="Listing">
+  <tr class="header">
+    <th> Name</th>
+    <th> Mission</th>
+  </tr>
+
+  <% @service_providers.each do |service_provider| %>
+  <tr>
+    <td> <%= service_provider.name %></td>
+    <td> <%= service_provider.mission %></td>
+
+    <td class="actions">
+      <%= link_to("Show", {:action => 'show', :id => service_provider.id}, :class => 'action show') %>
+   <%= link_to("Edit", '#', :class => 'action edit') %>
+   <%= link_to("Delete", '#', :class => 'action delete') %>
+   </td>
+  </tr>
+  <% end %>
+
+</table>
+</div>

@@ -1,1 +1,57 @@
-new.html.erb
+Add a new service provider<!--
+# name                 :string(255)
+#  mission              :string(255)
+#  image_url            :string(255)
+#  website              :string(255)
+#  providers_email      :string(255)
+#  contact_person       :string(255)
+#  contact_email        :string(255)
+#  street1              :string(255)
+#  street2              :string(255)
+#  city                 :string(255)
+#  state                :string(255)
+#  zip_code             :string(255)
+#  work_phone           :string(255)
+#  fax                  :string(255)
+#  infraction_supported :string(255)
+ -->
+
+
+
+<div class="service provider new">
+  <h2>Add Service Provider </h2>
+
+  <%= form_for (:service_provider) do |f| %>
+
+  <table summary="Service Provider form fields">
+    <tr>
+      <th><%= f.label(:name) %></th>
+      <td><%= f.text_field(:name) %></td>
+    </tr>
+    <tr>
+      <th><%= f.label(:mission) %></th>
+      <td><%= f.text_field(:mission) %></td>
+    </tr>
+    <tr>
+
+
+       <th><%= f.label(:service_category) %></th>
+            <% @service_categories.each do |service_category|  %>
+               <div class="checkbox">
+                  <label>
+                     <input type="checkbox" name="service_category_ids" value="<%= service_category.id %>">
+                   <td>  <%= f.check_box(:service_category) %> </td>
+                     <%= service_category.name.capitalize %>
+                  </label>
+               </div>
+            <% end %>
+         </div>
+    </th>
+  </table>
+
+    <div class="form-buttons">
+      <%= submit_tag("Create Service Provider") %>
+    </div>
+
+  <% end %>
+</div>

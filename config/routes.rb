@@ -6,8 +6,6 @@ Weintervene::Application.routes.draw do
   delete '/logout' => 'session#destroy'
 
 
-
-
   resources :schools do
     resources :users
     resources :students
@@ -17,6 +15,7 @@ Weintervene::Application.routes.draw do
     match '/referrals/new_no_pic' => 'referrals#new_no_pic', as: :no_pic
     resources :referrals
     resources :incident_logs
+    resources :service_providers
   end
 
    resources :students do
