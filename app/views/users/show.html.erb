@@ -92,11 +92,17 @@
       <td><%= referral.created_at.strftime("%m/%d/%Y") rescue nil %></td>
       <td><%= referral.student.first_name rescue nil %></td>
       <td><%= referral.comment.capitalize rescue nil %></td>
+
+       <td>
+      <% service_providers_array = [] %>
       <% referral.service_providers.each do |service_provider| %>
-      <td><%= service_provider.name %></td>
+
+      <% service_providers_array << service_provider.name %>
       <% end %>
+      <%= service_providers_array.join(', ') %>
     </tr>
     <% end  %>
+    </td>
   </table>
 
 </div> <!-- End Referrals Table -->

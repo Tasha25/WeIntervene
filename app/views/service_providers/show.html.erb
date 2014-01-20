@@ -1,3 +1,9 @@
+<ul class="nav nav-pills pull-right">
+  <li class="active">
+    <li> <%= link_to 'Home', user_path(current_user) %></li>
+  <li><a href="#">My Profile</a></li>
+</ul>
+
 <%= link_to("<<Back to List", {:action => 'index'}, :class => 'back-link') %>
 
 <h2> <%= @service_provider.name  %></h2>
