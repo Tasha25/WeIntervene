@@ -3,6 +3,7 @@ class StudentsController < ApplicationController
 
   def index
     @students = Student.all
+    @students = Student.search(params[:search]) #moving the search into the student model
   end
 
   def new

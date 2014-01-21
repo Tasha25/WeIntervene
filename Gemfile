@@ -67,3 +67,4 @@ group :development do
 end
 
 gem "simplecov", :require => false, :group => :test
+gem "will_paginate", :git => "https://github.com/p7r/will_paginate.git", :branch => "rails3"

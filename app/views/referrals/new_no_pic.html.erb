@@ -1,3 +1,8 @@
+<ul class="nav nav-pills pull-right">
+  <li class="active">
+    <li> <%= link_to 'Home', user_path(current_user) %></li>
+  <li><a href="#">My Profile</a></li>
+</ul>
 
 <div class="referral-form">
    <div class="row">
@@ -25,7 +30,8 @@
                <div class="checkbox">
                   <label>
                      <input type="checkbox" name="referral[service_provider_ids][]" value="<%= service_provider.id %>">
-                     <%= service_provider.name.capitalize %>
+                     <%= service_provider.name.capitalize %> <br>
+                     Mission: <%= service_provider.mission.capitalize %>
                   </label>
                </div>
             <% end %>

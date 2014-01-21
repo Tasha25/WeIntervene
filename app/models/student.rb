@@ -35,8 +35,16 @@ class Student < ActiveRecord::Base
   has_and_belongs_to_many :parents
   has_many :incident_logs
 
-   def full_name
+  def full_name
     "#{first_name} #{last_name}"
-   end
+  end
+
+  def self.search(search)
+    if search
+      where('first_name LIKE ? OR last_name LIKE ? OR identification_number LIKE ?', "%#{search}%", "%#{search}%", "%#{search}%")
+    else
+      scoped
+    end
+  end
 
 end

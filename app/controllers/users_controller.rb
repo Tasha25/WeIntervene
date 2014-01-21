@@ -19,8 +19,9 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @referral = Referral.new
-    @student = Student.all
+    @students = Student.all
     @incident_log = IncidentLog.all
+
   end
 
   def update

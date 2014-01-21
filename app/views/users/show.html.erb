@@ -15,10 +15,20 @@
   <%= link_to 'Show all Service Providers', "/users/#{@user.id}/service_providers", class: 'btn btn-primary btn-small'  %>
   </div>
 </div>
-<% #TODO Look at how to show one person picture and to be able to search for the rest %>
+
+
 <br>
+
+
+THIS IS WHERE I WANT FORM
+
+
+THIS IS WHERE FORM ENDS
+
+
 <div class="row">
- <% @student.each do |student| %>
+
+ <% @students.each do |student| %>
  <div class="student-demographic col-md-offset-2 col-md-8">
 
    <img class="col-sm-4" src="<%= student.image_url %>">
