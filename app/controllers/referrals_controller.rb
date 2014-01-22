@@ -29,7 +29,6 @@ end
 
 def new_no_pic
   @user = User.find_by_id(session[:user_id])
-  @students = Student.all
   @service_providers = ServiceProvider.all
   @service_categories = ServiceCategory.all
   @referral = Referral.new

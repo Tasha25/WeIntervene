@@ -3,11 +3,15 @@ class UsersController < ApplicationController
     redirect_to new_user_url
   end
 
+  def demo
+  end
+
   def new
     @user = User.new
   end
 
   def create
+    binding.pry
     @user = User.new(params[:user])
     if @user.save
       redirect_to @user, :notice => "Signed up!"

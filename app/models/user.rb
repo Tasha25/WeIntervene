@@ -23,6 +23,7 @@ class User < ActiveRecord::Base
    belongs_to :school
    has_many :incident_logs
    has_and_belongs_to_many :roles
+   has_many :students, through: :schools
 
 
 

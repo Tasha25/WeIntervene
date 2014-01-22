@@ -68,3 +68,9 @@ end
 
 gem "simplecov", :require => false, :group => :test
 gem "will_paginate", :git => "https://github.com/p7r/will_paginate.git", :branch => "rails3"
+
+gem 'twitter-bootstrap-rails'
+gem 'therubyracer'
+gem 'less-rails'
+
+gem "font-awesome-rails"

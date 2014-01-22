@@ -1,0 +1,32 @@
+<div class="incidents">
+  <h2> <%= @user.user_name.capitalize %>'s Incidents</h2>
+  <table class="table table-striped">
+    <tr>
+      <td> Date</td>
+      <td> Student Name</td>
+      <td> Comment</td>
+      <td> Infraction Code</td>
+      <td> Infraction Description</td>
+      <td> Actions</td>
+    </tr>
+
+    <% @user.incident_logs.each do |log|  %>
+    <tr>
+      <td><%= log.created_at.strftime("%m/%d/%Y") %></td>
+      <td> <%= log.student.first_name %></td>
+      <td><%= log.comment %></td>
+      <% if (log.infractions.length > 0) %>
+      <% log.infractions.each do |infraction| %>
+      <td><%= infraction.code %></td>
+      <td><%= infraction.description %></td>
+      <% end %>
+      <% else %>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <% end %>
+
+      <td><%= link_to 'Make a Referral', new_student_referral_url(log.student), class: 'btn btn-primary btn-small' %></td>
+    </tr>
+    <% end  %>
+  </table>
+</div> <!-- End Incidents table -->

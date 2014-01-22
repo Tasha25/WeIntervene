@@ -1,6 +1,9 @@
-</h1> WeIntervene Sign Up </h1>
 
-  <div id="wi_signup_form">
+<div class="account-container register stacked">
+<section class="content clearfix">
+
+     <h1>Create Your Account</h1>
+
 
     <%= form_for(@user) do |f| %>
       <% if @user.errors.any? %>
@@ -14,28 +17,37 @@
         </div>
         <% end %>
 
+
+        <div class="field">
+        <%= f.label :school %><br>
+        <%= f.select 'school_id', options_from_collection_for_select(School.all, :id, :name), {:class=>"form-control", :style => "size: 100px"} %>
+        </div>
+
       <div class="field">
         <%= f.label :user_name %> <br/>
-        <%= f.text_field :user_name %>
+        <%= f.text_field :user_name, :class=>"form-control" %>
       </div>
 
       <div class="field">
         <%= f.label :email %> <br/>
-        <%= f.text_field :email %>
+        <%= f.text_field :email, :class=>"form-control" %>
       </div>
 
       <div class="field">
         <%= f.label :password %> <br/>
-        <%= f.password_field :password %>
+        <%= f.password_field :password, :class=>"form-control" %>
       </div>
 
       <div class="field">
         <%= f.label :password_confirmation %> <br/>
-        <%= f.password_field :password_confirmation %>
+        <%= f.password_field :password_confirmation, :class=>"form-control" %>
       </div>
 
-      <div class="actions">
+      <div class="form-actions">
         <%= f.submit %>
       </div>
       <% end  %>
-    </div>
+
+</section>
+</div>
+

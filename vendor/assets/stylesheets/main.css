@@ -10,3 +10,13 @@
   font-weight: bold;
 }
 .referral-form {}
+
+
+.bgSizeCover {
+  height: 100%;
+  background-image: url('weintervene_categories.png');
+  background-size: cover;
+  border: 2px solid darkgray;
+  color: #000; text-shadow: 1px 1px 0 #fff;
+  }
+

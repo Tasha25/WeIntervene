@@ -12,5 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= jquery-min
+//= jquery-ui-custom-min
+//= require ui-lightness-jquery
 //= require bootstrap
+//= require myscript
+//= base_application
 //= require_tree .
+
+
