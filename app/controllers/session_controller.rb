@@ -1,5 +1,7 @@
 class SessionController < ApplicationController
   def new
+    @user = User.all
+    render :layout => "login"
   end
 
   def create

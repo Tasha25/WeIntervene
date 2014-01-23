@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Weintervene</title>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+   <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600" rel="stylesheet">
+<link rel="stylesheet" href="assets/fontawesome.css">
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+
+
+</head>
+<body>
+
+
+<nav class="navbar navbar" role="navigation">
+  <section class="container">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <i class="icon-cog"></i>
+    </button>
+  </div>
+
+
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <div class="collapse navbar-collapse navbar-ex1-collapse">
+<%= link_to image_tag("logo-nobakground.png", :alt=> "WeIntervene Logo") , root_url %>
+
+    <ul class="nav navbar-nav navbar-right">
+     <li class="back">
+      <a href="/" >
+        <i class="fa fa-angle-left"></i>
+        Back
+      </a>
+
+    </li>
+
+    <li class="login">
+      <a href="/login" >
+        <i class="fa fa-user"></i>
+        Log In
+      </a>
+
+    </li>
+    </ul>  <!--  End /.nav navbar-nav navbar-right -->
+  </div><!-- /.navbar-collapse -->
+</section> <!-- /.container -->
+
+</nav>  <!-- /.navbar navbar-inverse -->
+
+<div class="account-container register stacked">
+<section class="content clearfix">
+
+     <h1>Create Your Account</h1>
+
+
+    <%= form_for(@user) do |f| %>
+
+        <div class="field">
+        <%= f.label :school %><br>
+        <%= f.select 'school_id', options_from_collection_for_select(School.all, :id, :name), {:class=>"form-control", :style => "size: 100px"} %>
+        </div>
+
+      <div class="field">
+        <%= f.label :user_name %> <br/>
+        <%= f.text_field :user_name, :class=>"form-control" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :email %> <br/>
+        <%= f.text_field :email, :class=>"form-control" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password %> <br/>
+        <%= f.password_field :password, :class=>"form-control" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password_confirmation %> <br/>
+        <%= f.password_field :password_confirmation, :class=>"form-control" %>
+      </div>
+
+      <div class="form-actions">
+        <%= f.submit %>
+      </div>
+      <% end  %>
+
+</section>
+</div>
+

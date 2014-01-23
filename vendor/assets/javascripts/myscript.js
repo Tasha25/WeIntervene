@@ -2,7 +2,7 @@ $(function() {
 
 
   $("#home a:contains('Home')").parent().addClass('active');
-
+ $("#organization-new a:contains('Organizations')").parent().addClass('active');
 
   $('ul.nav li.dropdown').hover(function() {
     $('.dropdown-menu', this).fadeIn()

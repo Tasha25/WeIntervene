@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Weintervene</title>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+   <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600" rel="stylesheet">
+<link rel="stylesheet" href="assets/fontawesome.css">
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+
+
+</head>
+<body>
+
+
+<nav class="navbar navbar" role="navigation">
+  <section class="container">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <i class="icon-cog"></i>
+    </button>
+  </div>
+
+
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <div class="collapse navbar-collapse navbar-ex1-collapse">
+<%= link_to image_tag("logo-nobakground.png", :alt=> "WeIntervene Logo") , root_url %>
+
+    <ul class="nav navbar-nav navbar-right">
+      <li class="Sign-up">
+      <a href="/signup">
+        <i class="fa fa-pencil"></i>
+        Signup
+      </a>
+      </li>
+
+      <li class="back">
+      <a href="/" >
+        <i class="fa fa-arrow"></i>
+        Back
+      </a>
+      </li>
+
+  </ul>  <!--  End /.nav navbar-nav navbar-right -->
+  </div><!-- /.navbar-collapse -->
+</section> <!-- /.container -->
+
+</nav>  <!-- /.navbar navbar-inverse -->
+
+<div class="account-container register stacked">
+<section class="content clearfix">
+
+<!-- We use form_tag here because we are not editing a resource. The form is submitted to a sessions_path  -->
+<%= form_tag login_path do |f| %>
+  <div class="row">
+    <div class="form-group col-md-6">
+      <%= label_tag :email %>
+      <%= text_field_tag :email, params[:email] , :class=> "form-control" %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col-md-6">
+      <%= label_tag :password %>
+      <%= password_field_tag :password, nil, :class => ["form-control"] %>
+    </div>
+  </div>
+
+  <div class="actions">
+    <%= submit_tag %>
+  </div>
+<% end %>
+
+</section>
+</div>

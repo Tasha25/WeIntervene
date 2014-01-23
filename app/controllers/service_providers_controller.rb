@@ -1,10 +1,11 @@
 class ServiceProvidersController < ApplicationController
   def index
-    @service_providers = ServiceProvider.all
+    @service_providers = ServiceProvider.order("service_providers.created_at DESC")
     @service_categories = ServiceCategory.all
   end
 
   def new
+    @user = User.find(params[:user_id])
     @service_categories = ServiceCategory.all
     @service_provider = ServiceProvider.new
   end

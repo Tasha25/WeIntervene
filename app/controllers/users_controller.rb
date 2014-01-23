@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def index
-    redirect_to new_user_url
+    render action: "show"
   end
 
   def demo
@@ -8,10 +8,10 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    render :layout => "signup"
   end
 
   def create
-    binding.pry
     @user = User.new(params[:user])
     if @user.save
       redirect_to @user, :notice => "Signed up!"

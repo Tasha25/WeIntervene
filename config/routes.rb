@@ -1,14 +1,16 @@
 Weintervene::Application.routes.draw do
   root :to => 'welcome#index'
-  get '/signup' => 'users#new'
+
+  match '/signup', to: 'users#new'
   post '/signup' => 'users#create'
-  post '/' => 'users#create'
-  get '/login' => 'session#new'
+  # post '/' => 'users#create'
+
+  get '/login', to: 'session#new'
   post '/login' => 'session#create'
   post 'posts' => 'service_providers#create'
-  delete '/logout' => 'session#destroy'
+  get '/logout' => 'session#destroy'
 
-  get '/demo' => 'users#demo'
+  match '/demo', to: 'users#demo'
 
   resources :schools do
     resources :users
@@ -29,3 +31,4 @@ Weintervene::Application.routes.draw do
   end
 
 end
+

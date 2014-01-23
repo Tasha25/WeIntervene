@@ -27,3 +27,6 @@
   color: #555;
   vertical-align: middle;
 }  /*This needed to change to fa- because icon- was not working any more when I changed over the file into the users new*/
+
+
+.carousel-inner > .item > img { margin: 0 auto; }

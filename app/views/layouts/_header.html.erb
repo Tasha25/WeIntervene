@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Weintervene</title>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+   <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600" rel="stylesheet">
+<link rel="stylesheet" href="assets/fontawesome.css">
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+
+
+</head>
+<body>
+
+
+<nav class="navbar navbar" role="navigation">
+  <section class="container">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <i class="icon-cog"></i>
+    </button>
+  </div>
+
+
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <div class="collapse navbar-collapse navbar-ex1-collapse">
+<%= link_to image_tag("logo-nobakground.png", :alt=> "WeIntervene Logo") , root_url %>
+
+    <ul class="nav navbar-nav navbar-right">
+      <li class="dropdown">
+
+      <a href="javscript:;" class="dropdown-toggle" data-toggle="dropdown">
+        <i class="fa fa-cog"></i>
+        Settings
+        <b class="caret"></b>
+      </a>
+
+      <ul class="dropdown-menu" role="menu" aria-labeledby="dropdownMenu">
+        <li><a href="./account.html">Account Settings</a></li>
+        <li><a href="javascript:;">Privacy Settings</a></li>
+        <li class="divider"></li>
+        <li><a href="javascript:;">Help</a></li>
+      </ul>
+
+    </li> <!-- Content in settings -->
+
+    <li class="dropdown">
+
+      <a href="javscript:;" class="dropdown-toggle" data-toggle="dropdown">
+        <i class="fa fa-user"></i>
+        <%= @user.user_name.capitalize %>
+        <b class="caret"></b>
+      </a>
+
+      <ul class="dropdown-menu">
+        <li><a href="javascript:;">My Profile</a></li>
+        <li class="divider"></li>
+        <li><a href="/logout">Logout</a></li>
+      </ul>
+
+    </li>  <!-- Content in User -->
+    </ul>  <!--  End /.nav navbar-nav navbar-right -->
+  </div><!-- /.navbar-collapse -->
+</section> <!-- /.container -->
+
+</nav>  <!-- /.navbar navbar-inverse -->
+
+<div class="subnavbar">
+  <div class="subnavbar-inner">
+    <div class="container">
+
+      <a href="javascript:;" class="subnav-toggle" data-toggle="collapse" data-target=".subnav-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <i class="icon-reorder"></i>
+
+        </a>
+
+      <div class="collapse subnav-collapse">
+        <ul class="mainnav">
+
+          <li class="dropdown">
+            <a href= "/users/#{@user.id}">
+
+              <i class="fa fa-home"></i>
+              <span>Home</span>
+            </a>
+          </li>
+
+          <li class="dropdown">
+            <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
+
+              <i class="fa fa-user"></i>
+              <span>Students</span>
+              <b class="caret"></b>
+            </a>
+
+            <ul class="dropdown-menu">
+              <li><a href="#">Need Reccomendations</a></li>
+             <!--  <li><a href="#">Form Styles</a></li>
+              <li><a href="#">jQuery UI</a></li>
+              <li><a href="#">Charts</a></li>
+              <li><a href="#">Popups/Notifications</a></li> -->
+            </ul>
+          </li>
+
+          <li class="dropdown">
+            <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
+              <i class="fa fa-building-o"></i>
+              <span>Organizations</span>
+              <b class="caret"></b>
+            </a>
+
+            <ul class="dropdown-menu">
+              <li><a href="#">Add Organization</a></li>
+          <li><%= link_to 'Add Service Provider', "#" %></li>
+            <!--   <li><a href="./faq.html">FAQ's</a></li>
+              <li><a href="./gallery.html">Gallery</a></li>
+              <li><a href="./reports.html">Reports</a></li>
+              <li><a href="./account.html">User Account</a></li> -->
+            </ul>
+          </li>
+<!--
+          <li class="dropdown">
+            <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
+              <i class="icon-external-link"></i>
+              <span>Extra Pages</span>
+              <b class="caret"></b>
+            </a>
+ -->
+         <!--    <ul class="dropdown-menu">
+              <li><a href="./login.html">Login</a></li>
+              <li><a href="./signup.html">Signup</a></li>
+              <li><a href="./error.html">Error</a></li>
+              <li class="dropdown-submenu">
+                  <a tabindex="-1" href="#">More options</a>
+                  <ul class="dropdown-menu">
+                    <li><a tabindex="-1" href="#">Second level</a></li>
+
+                    <li><a href="#">Second level</a></li>
+                    <li><a href="#">Second level</a></li>
+                  </ul>
+                </li>
+            </ul>  dropdown-menu end
+          </li> --> <!-- dropdown end -->
+        </ul> <!--  /.mainnav -->
+      </div> <!-- /.subnav-collapse -->
+    </div> <!-- /container -->
+  </div> <!-- /subnavbar-inner -->
+</div> <!-- /subnavbar -->
