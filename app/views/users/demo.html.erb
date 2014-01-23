@@ -8,11 +8,11 @@
 
   <style>[touch-action="none"]{ -ms-touch-action: none; touch-action: none; }[touch-action="pan-x"]{ -ms-touch-action: pan-x; touch-action: pan-x; }[touch-action="pan-y"]{ -ms-touch-action: pan-y; touch-action: pan-y; }[touch-action="scroll"],[touch-action="pan-x pan-y"],[touch-action="pan-y pan-x"]{ -ms-touch-action: pan-x pan-y; touch-action: pan-x pan-y; }</style><style id="clearly_highlighting_css" type="text/css">/* selection */ html.clearly_highlighting_enabled ::-moz-selection { background: rgba(246, 238, 150, 0.99); } html.clearly_highlighting_enabled ::selection { background: rgba(246, 238, 150, 0.99); } /* cursor */ html.clearly_highlighting_enabled {    /* cursor and hot-spot position -- requires a default cursor, after the URL one */    cursor: url("chrome-extension://pioclpoplcdbaefihamjohnefbikjilc/clearly/images/highlight--cursor.png") 14 16, text; } /* highlight tag */ em.clearly_highlight_element {    font-style: inherit !important; font-weight: inherit !important;    background-image: url("chrome-extension://pioclpoplcdbaefihamjohnefbikjilc/clearly/images/highlight--yellow.png");    background-repeat: repeat-x; background-position: top left; background-size: 100% 100%; } /* the delete-buttons are positioned relative to this */ em.clearly_highlight_element.clearly_highlight_first { position: relative; } /* delete buttons */ em.clearly_highlight_element a.clearly_highlight_delete_element {    display: none; cursor: pointer;    padding: 0; margin: 0; line-height: 0;    position: absolute; width: 34px; height: 34px; left: -17px; top: -17px;    background-image: url("chrome-extension://pioclpoplcdbaefihamjohnefbikjilc/clearly/images/highlight--delete-sprite.png"); background-repeat: no-repeat; background-position: 0px 0px; } em.clearly_highlight_element a.clearly_highlight_delete_element:hover { background-position: -34px 0px; } /* retina */ @media (min--moz-device-pixel-ratio: 2), (-webkit-min-device-pixel-ratio: 2), (min-device-pixel-ratio: 2) {    em.clearly_highlight_element { background-image: url("chrome-extension://pioclpoplcdbaefihamjohnefbikjilc/clearly/images/highlight--yellow@2x.png"); }    em.clearly_highlight_element a.clearly_highlight_delete_element { background-image: url("chrome-extension://pioclpoplcdbaefihamjohnefbikjilc/clearly/images/highlight--delete-sprite@2x.png"); background-size: 68px 34px; } } </style> --></head>
 
-<body>
+<body id="home">
 
 <nav class="navbar navbar-inverse" role="navigation">
 
-  <div class="container">
+  <section class="container">
   <div class="navbar-header">
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
       <span class="sr-only">Toggle navigation</span>
@@ -39,13 +39,13 @@
         <li><a href="javascript:;">Help</a></li>
       </ul>
 
-    </li>
+    </li> <!-- Content in settings -->
 
     <li class="dropdown">
 
       <a href="javscript:;" class="dropdown-toggle" data-toggle="dropdown">
         <i class="icon-user"></i>
-        #Place User here
+        #Place User
         <b class="caret"></b>
       </a>
 
@@ -56,23 +56,15 @@
         <li><a href="javascript:;">Logout</a></li>
       </ul>
 
-    </li>
-    </ul>
-
-    <form class="navbar-form navbar-right" role="search">
-      <div class="form-group">
-        <input type="text" class="form-control input-sm search-query" placeholder="Search">
-      </div>
-    </form>
+    </li>  <!-- Content in User -->
+    </ul>  <!--  End /.nav navbar-nav navbar-right -->
   </div><!-- /.navbar-collapse -->
-</div> <!-- /.container -->
+</section> <!-- /.container -->
 
-</nav>
+</nav>  <!-- /.navbar navbar-inverse -->
 
 <div class="subnavbar">
-
   <div class="subnavbar-inner">
-
     <div class="container">
 
       <a href="javascript:;" class="subnav-toggle" data-toggle="collapse" data-target=".subnav-collapse">
@@ -93,44 +85,45 @@
 
           <li class="dropdown">
             <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="icon-th"></i>
-              <span>Components</span>
+
+              <i class="fa fa-user"></i>
+              <span>Students</span>
               <b class="caret"></b>
             </a>
 
             <ul class="dropdown-menu">
-              <li><a href="./elements.html">Elements</a></li>
-              <li><a href="./forms.html">Form Styles</a></li>
-              <li><a href="./jqueryui.html">jQuery UI</a></li>
-              <li><a href="./charts.html">Charts</a></li>
-              <li><a href="./popups.html">Popups/Notifications</a></li>
+              <li><a href="#">Need Reccomendations</a></li>
+             <!--  <li><a href="#">Form Styles</a></li>
+              <li><a href="#">jQuery UI</a></li>
+              <li><a href="#">Charts</a></li>
+              <li><a href="#">Popups/Notifications</a></li> -->
             </ul>
           </li>
 
           <li class="dropdown">
             <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="icon-copy"></i>
-              <span>Sample Pages</span>
+              <i class="fa fa-building-o"></i>
+              <span>Organizations</span>
               <b class="caret"></b>
             </a>
 
             <ul class="dropdown-menu">
-              <li><a href="./pricing.html">Pricing Plans</a></li>
-              <li><a href="./faq.html">FAQ's</a></li>
+              <li><a href="#">Reccommend</a></li>
+            <!--   <li><a href="./faq.html">FAQ's</a></li>
               <li><a href="./gallery.html">Gallery</a></li>
               <li><a href="./reports.html">Reports</a></li>
-              <li><a href="./account.html">User Account</a></li>
+              <li><a href="./account.html">User Account</a></li> -->
             </ul>
           </li>
-
+<!--
           <li class="dropdown">
             <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
               <i class="icon-external-link"></i>
               <span>Extra Pages</span>
               <b class="caret"></b>
             </a>
-
-            <ul class="dropdown-menu">
+ -->
+         <!--    <ul class="dropdown-menu">
               <li><a href="./login.html">Login</a></li>
               <li><a href="./signup.html">Signup</a></li>
               <li><a href="./error.html">Error</a></li>
@@ -143,16 +136,12 @@
                     <li><a href="#">Second level</a></li>
                   </ul>
                 </li>
-            </ul>
-          </li>
-
-        </ul>
+            </ul>  dropdown-menu end
+          </li> --> <!-- dropdown end -->
+        </ul> <!--  /.mainnav -->
       </div> <!-- /.subnav-collapse -->
-
     </div> <!-- /container -->
-
   </div> <!-- /subnavbar-inner -->
-
 </div> <!-- /subnavbar -->
 
 
