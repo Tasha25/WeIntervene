@@ -1,9 +1,8 @@
 Weintervene::Application.routes.draw do
   root :to => 'welcome#index'
 
-  match '/signup', to: 'users#new'
+  get '/signup', to: 'users#new'
   post '/signup' => 'users#create'
-  # post '/' => 'users#create'
 
   get '/login', to: 'session#new'
   post '/login' => 'session#create'

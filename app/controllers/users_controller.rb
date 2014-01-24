@@ -1,13 +1,14 @@
 class UsersController < ApplicationController
   def index
-    render action: "show"
+    redirect_to root_url
   end
 
   def demo
+    @user = User.find(params[:id])
   end
 
   def new
-    @user = User.new
+    # @user = User.new
     render :layout => "signup"
   end
 
@@ -23,8 +24,10 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @referral = Referral.new
-    @students = Student.all
+    @students = Student.order("students.created_at DESC").limit(5)
+    @referrals = Referral.order("referrals.created_at DESC").limit(4)
     @incident_log = IncidentLog.all
+    @service_providers = ServiceProvider.order("service_providers.created_at DESC").limit(5)
 
   end
 

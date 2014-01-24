@@ -1,6 +1,6 @@
 class SessionController < ApplicationController
   def new
-    @user = User.all
+    # @user = User.all
     render :layout => "login"
   end
 
@@ -11,7 +11,7 @@ class SessionController < ApplicationController
       redirect_to user_path(user), :notice => "Logged in!"
     else
       flash.now.alert = "Invalid email or password"
-      render "new"
+      redirect_to login_path
     end
   end
 
@@ -21,5 +21,3 @@ class SessionController < ApplicationController
   end
 end
 
-
-#authenticated allows you to fetch the user whose addres matches the value entered in the form. Then we authenticate on that user because has_secure_password gives us that
