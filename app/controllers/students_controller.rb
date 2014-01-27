@@ -23,8 +23,10 @@ class StudentsController < ApplicationController
   end
 
   def show
-    @school = School.find(params[:school_id])
+    @user = User.find(params[:id])
+    @school = School.find(params[:id])
     @student = Student.find(params[:id])
+    @students = Student.all
   end
 
 
