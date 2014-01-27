@@ -1,34 +1,119 @@
 
 <body id="organization-new">
 
-<div>
+<div class="service-provider">
+   <div class="row">
 <h2> Add Service Provider </h2>
+</div>
 
-    <%= form_tag({:controller => "service_providers", :action => "create"}, :method => "post", :multipart => true) do %>
-    <div>
+    <%= form_for([@user,@service_provider]) do |f| %>
 
-    <%= label_tag :name %>
-    <%= text_field(:service_provider, :name) %>
-    </div>
-    <div>
-    <%= label_tag :mission %>
-    <%= text_field(:service_provider, :mission) %>
-    </div>
-    <div>
-     <%= label_tag :service_category %>
-            <% @service_categories.each do |service_category|  %>
-               <div class="checkbox">
-                  <label>
-                    <%= check_box_tag "service_provider[service_category_ids][]", service_category.id, false, :id => "service_category_id_#{service_category.id}" %>
-                     <%= service_category.name.capitalize %>
-                  </label>
-               </div>
-        <% end %>
-        </div>
+      <div class="row">
+         <div class="form-group col-md-8 col-md-offset-2">
+      <%= f.label 'Name' %>
+      <%= f.text_field 'name', class: 'form-control' %>
+      </div>
+      </div>
 
-      <%= submit_tag("Service Provider") %>
+      <div class="row">
+         <div class="form-group col-md-8 col-md-offset-2">
+         <%= f.label 'mission' %>
+         <%= f.text_field 'mission', class: 'form-control'%>
+       </div>
+      </div>
+
+      <div class="row">
+         <div class="form-group col-md-8 col-md-offset-2">
+         <%= f.label 'image_url' %>
+         <%= f.text_field 'image_url', class: 'form-control' %>
+          </div>
+      </div>
+
+      <div class="row">
+         <div class="form-group col-md-8 col-md-offset-2">
+         <%= f.label 'website' %>
+         <%= f.text_field 'website', class: 'form-control '%>
+          </div>
+      </div>
+
+      <div class="row">
+         <div class="form-group col-md-8 col-md-offset-2">
+         <%= f.label 'providers_email'%>
+         <%= f.text_field 'providers_email', class: 'form-control ' %>
+          </div>
+      </div>
+
+      <div class="row">
+         <div class="form-group col-md-8 col-md-offset-2">
+         <%= f.label 'contact_person' %>
+         <%= f.text_field 'contact_person', class: 'form-control '   %>
+          </div>
+      </div>
+
+      <div class="row">
+         <div class="form-group col-md-8 col-md-offset-2">
+         <%= f.label 'contact_email ' %>
+         <%= f.text_field 'contact_email', class: 'form-control '   %>
+          </div>
+      </div>
+
+      <div class="row">
+         <div class="form-group col-md-8 col-md-offset-2">
+         <%= f.label 'street1 ' %>
+         <%= f.text_field 'street1', class: 'form-control '  %>
+          </div>
+      </div>
+
+      <div class="row">
+         <div class="form-group col-md-8 col-md-offset-2">
+         <%= f.label 'street2' %>
+         <%= f.text_field 'street2', class: 'form-control ' %>
+          </div>
+      </div>
+
+      <div class="row">
+         <div class="form-group col-md-8 col-md-offset-2">
+         <%= f.label 'city ' %>
+         <%= f.text_field 'city', class: 'form-control '  %>
+          </div>
+      </div>
+
+      <div class="row">
+         <div class="form-group col-md-8 col-md-offset-2">
+         <%= f.label 'state ' %>
+         <%= f.text_field 'state', class: 'form-control ' %>
+          </div>
+      </div>
+
+      <div class="row">
+         <div class="form-group col-md-8 col-md-offset-2">
+         <%= f.label 'zip_code' %>
+         <%= f.text_field 'zip_code', class: 'form-control' %>
+          </div>
+      </div>
+
+      <div class="row">
+         <div class="form-group col-md-8 col-md-offset-2">
+         <%= f.label 'work_phone' %>
+         <%= f.text_field 'work_phone', class: 'form-control'  %>
+          </div>
+      </div>
+
+      <div class="row">
+         <div class="form-group col-md-8 col-md-offset-2">
+         <%= f.label 'fax ' %>
+         <%= f.text_field 'fax', class: 'form-control' %>
+          </div>
+      </div>
+
+      <div class="row">
+         <div class="col-md-8 col-md-offset-2">
+      <%= f.submit "Create User", class: 'btn btn-primary btn-small' %>
+         </div>
+      </div>
+
     <% end %>
-  </div>
+</div>
+<br>
 
-
-
+</body>

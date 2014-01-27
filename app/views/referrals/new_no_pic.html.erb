@@ -9,7 +9,7 @@
       <h1 class="col-md-offset-2 col-md-8"> Referral Form </h1>
    </div>
 
-   <%= form_for([@user, @referral ]) do |f| %>
+   <%= form_for([@user, @referral]) do |f| %>
       <div class="row">
          <div class="form-group col-md-8 col-md-offset-2">
 
@@ -31,8 +31,11 @@
                <div class="checkbox">
                   <label>
                      <input type="checkbox" name="referral[service_provider_ids][]" value="<%= service_provider.id %>">
-                     <%= service_provider.name.capitalize %> <br>
-                     Mission: <%= service_provider.mission.capitalize %>
+<!--
+                     I want to put .capitalize after each one but because there was empty spaces it didn't work out.  -->
+
+                     <%= service_provider.name %> <br>
+                     Mission: <%= service_provider.mission %>
                   </label>
                </div>
             <% end %>
@@ -44,8 +47,6 @@
             <%= f.submit class: 'btn btn-primary btn-small' %>
          </div>
       </div>
-
-      <%= f.hidden_field "user_id", :value=> @user.id %>
 
    <% end %>
 </div>

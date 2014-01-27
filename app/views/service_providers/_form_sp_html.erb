@@ -1,0 +1,41 @@
+
+<body id="organization-new">
+
+<h2> Add Service Provider </h2>
+
+<form role="form">
+  <div>
+
+    <%= form_tag({:controller => "service_providers", :action => "create"}, :method => "sp_post", :multipart => true) do %>
+
+<div class="form-group">
+    <%= label_tag :name %>
+    <%= text_field(:service_provider, :name, class: "form-control") %>
+</div>
+
+
+<div class="form-group">
+    <%= label_tag "Mission or Purpose"%>
+    <%= text_field(:service_provider, :mission, class: "form-control") %>
+</div>
+
+
+
+     <%= label_tag "Guidance Intervention" %>
+            <% @service_categories.each do |service_category|  %>
+  <div class="checkbox">
+                  <label>
+                    <%= check_box_tag "service_provider[service_category_ids][]", service_category.id, false, :id => "service_category_id_#{service_category.id}" %>
+                     <%= service_category.name.capitalize %>
+                  </label>
+               </div>
+        <% end %>
+  </div>
+
+
+      <%= submit_tag("Add Service Provider") %>
+    <% end %>
+  </div>
+</form>
+
+<br>

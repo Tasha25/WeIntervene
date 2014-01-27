@@ -3,13 +3,13 @@ Weintervene::Application.routes.draw do
 
   get '/signup', to: 'users#new'
   post '/signup' => 'users#create'
-
   get '/login', to: 'session#new'
   post '/login' => 'session#create'
-  post 'posts' => 'service_providers#create'
   get '/logout' => 'session#destroy'
 
   match '/demo', to: 'users#demo'
+  post 'posts' => 'service_providers#create'
+
 
   resources :schools do
     resources :users
@@ -18,6 +18,7 @@ Weintervene::Application.routes.draw do
 
   resources :users do
     match '/referrals/new_no_pic' => 'referrals#new_no_pic', as: :no_pic
+    match '/service_providers/cbo' => 'service_providers#cbo', as: :cbo
     resources :referrals
     resources :incident_logs
     resources :service_providers
@@ -28,6 +29,9 @@ Weintervene::Application.routes.draw do
     resources :referrals
     resources :incident_logs
   end
+
+
+
 
 end
 
