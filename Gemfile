@@ -74,3 +74,5 @@ gem 'therubyracer'
 gem 'less-rails'
 
 gem "font-awesome-rails"
+gem "roo", "~> 1.13.2"
+

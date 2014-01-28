@@ -2,6 +2,7 @@ class StudentsController < ApplicationController
   before_filter :require_authentication
 
   def index
+    @user = User.find(params[:user_id])
     @students = Student.all
     @students = Student.search(params[:search]) #moving the search into the student model
   end

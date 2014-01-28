@@ -11,11 +11,10 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131218110046) do
+ActiveRecord::Schema.define(:version => 20140127190430) do
 
   create_table "disciplinary_responses", :force => true do |t|
     t.string   "code"
-    t.string   "name"
     t.string   "description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
@@ -213,6 +212,7 @@ ActiveRecord::Schema.define(:version => 20131218110046) do
     t.string   "cohort"
     t.datetime "created_at",            :null => false
     t.datetime "updated_at",            :null => false
+    t.string   "gender"
   end
 
   create_table "users", :force => true do |t|

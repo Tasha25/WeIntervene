@@ -1,3 +1,7 @@
+<body id="student-all">
+
+
+
 <%= form_tag({:controller => "students", :action => "index"}, :method => "get") do %>
   <p>
     <%= text_field_tag :search, params[:search] %>
@@ -30,3 +34,5 @@
 </div>
 <% end %>
 </div>
+
+</body>

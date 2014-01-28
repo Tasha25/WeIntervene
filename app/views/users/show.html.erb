@@ -7,12 +7,12 @@
         <div class="col-md-6 col-xs-12">
           <div class="widget stacked widget-table action-table">
             <div class="widget-header">
-              <i class="fa fa-star"></i>
+              <i class="fa fa-bullhorn"></i>
 
               <h3> Newly Added Service Providers</h3>
             </div> <!-- /widget-header -->
             <div class="widget-content">
-              <%= render partial: "new_service_provider" %>
+              <%= render partial: "newly_added_service_provider" %>
             </div> <!-- /widget-content Newly Added Service Provider-->
           </div> <!-- /widget -->
 
@@ -42,11 +42,12 @@
                   <td> <%= referral.comment %></td>
                   <td><% referral.service_providers.each do |service_provider| %>
                     <%= service_provider.name %>
-                    <%end %>
+                       <%end %>
                   </td>
 
                   <td class="td-actions">
-                    <a href="<%=user_student_path(@user, referral.student)%> " class="btn btn-xs btn-primary">
+                    <a href="<%=user_referral_path(@user,referral) %>"
+                    <a href="" class="btn btn-xs btn-primary">
                       Show
                     </a>
                   </td>
@@ -117,7 +118,7 @@
               </a>
 
               <a href="javascript:;" class="shortcut">
-                <i class="shortcut-icon fa fa-trophy"></i>
+                <i class="shortcut-icon fa fa-comments-o"></i>
                 <span class="shortcut-label">Peer Mediation</span>
               </a>
 
@@ -147,15 +148,41 @@
         <div class="widget stacked">
 
           <div class="widget-header">
-            <i class="fa fa-signal"></i>
-            <h3>Chart</h3>
+            <i class="fa fa-bullseye"></i>
+            <h3>Academic & Social Support</h3>
           </div> <!-- /widget-header -->
 
           <div class="widget-content">
-            Add information here
+             <div class="shortcuts">
+              <a href="javascript:;" class="shortcut">
+                <span class="shortcut-icon glyphicon glyphicon-book"></span>
+                <span class="shortcut-label">Tutoring</span>
+              </a>
+
+              <a href="javascript:;" class="shortcut">
+                <span class="shortcut-icon glyphicon glyphicon-star"></span>
+                <span class="shortcut-label">Academic Enrichment</span>
+              </a>
+
+              <a href="javascript:;" class="shortcut">
+                <i class="shortcut-icon fa fa-trophy"></i>
+                <span class="shortcut-label">Sports</span>
+              </a>
+
+              <a href="javascript:;" class="shortcut">
+                <i class="shortcut-icon fa fa-gift"></i>
+                <span class="shortcut-label">Volunteering</span>
+              </a>
+
+                 <a href="javascript:;" class="shortcut">
+                 <span class="shortcut-icon glyphicon glyphicon-usd"></span>
+                <span class="shortcut-label">Jobs & Internships</span>
+              </a>
+
           </div> <!-- /widget-content -->
 
         </div> <!-- /widget -->
+      </div>
 
 
 

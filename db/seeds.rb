@@ -74,11 +74,11 @@ s2.service_categories << ServiceCategory.all[1]
 s3.service_categories << ServiceCategory.all[2]
 s4.service_categories << ServiceCategory.all[3]
 
-stud1 = Student.create(image_url: 'http://api.randomuser.me/0.2/portraits/men/20.jpg', first_name: 'John', last_name: 'Doe', identification_number: '123456789',  date_of_birth: '12/13/99', school_id:'1', email: 'student@gmail.com', street1: ' 123 Main Street', street2: '', city: 'Bronx', zip_code: '10469', phone:'718-231-1000', cell_phone:'646-1000',  counselor: 'Ms.Nice', cohort: '2018', grade_level: '9')
+stud1 = Student.create(image_url: 'assets/images/students/1.jpeg', first_name: 'John', last_name: 'Doe', identification_number: '123456789',  date_of_birth: '12/13/99', school_id:'1', email: 'student@gmail.com', street1: ' 123 Main Street', street2: '', city: 'Bronx', zip_code: '10469', phone:'718-231-1000', cell_phone:'646-1000',  counselor: 'Ms.Nice', cohort: '2018', grade_level: '9')
 
-stud2 = Student.create(image_url: 'http://api.randomuser.me/?seed=goldenFrog',first_name: 'Clarissa', last_name: 'Burke', identification_number: '11122233', date_of_birth: '1/19/98', school_id:'1',email: 'student@gmail.com', street1: ' 123 Main Street', street2: '', city: 'Bronx', zip_code: '10469', phone:'718-231-1000', cell_phone:'646-1000',  counselor: 'Ms.Nice', cohort: '2017', grade_level: '10')
+stud2 = Student.create(image_url: 'assets/images/students/2.jpeg',first_name: 'Clarissa', last_name: 'Burke', identification_number: '11122233', date_of_birth: '1/19/98', school_id:'1',email: 'student@gmail.com', street1: ' 123 Main Street', street2: '', city: 'Bronx', zip_code: '10469', phone:'718-231-1000', cell_phone:'646-1000',  counselor: 'Ms.Nice', cohort: '2017', grade_level: '10')
 
-stud3 = Student.create(image_url: 'http://api.randomuser.me/?seed=smallSnake', first_name: 'Tom', last_name: 'Hanks', identification_number: '237849679', date_of_birth: '2/10/97', school_id:'2', email: 'student@gmail.com', street1: ' 123 Main Street', street2: '', city: 'Bronx', zip_code: '10469', phone:'718-231-1000', cell_phone:'646-1000', counselor: 'Ms.Nice', cohort: '2016', grade_level: '11')
+stud3 = Student.create(image_url: 'assets/images/students/3.jpeg', first_name: 'Tom', last_name: 'Hanks', identification_number: '237849679', date_of_birth: '2/10/97', school_id:'2', email: 'student@gmail.com', street1: ' 123 Main Street', street2: '', city: 'Bronx', zip_code: '10469', phone:'718-231-1000', cell_phone:'646-1000', counselor: 'Ms.Nice', cohort: '2016', grade_level: '11')
 
 Parent.create(first_name: 'Harold', last_name: 'Doe', street1: '900 Broadway', work_phone: '234564662', email: 'harold@gmail.com')
 Parent.create(first_name: 'Fiona', last_name: 'Taylor', street1: '901 Broadway', work_phone: '12233234', email: 'fiona@gmail.com')
@@ -93,9 +93,9 @@ r4 = Referral.create( comment: 'gang leader', user_id: '1' , student_id: '3' )
 
 
 
-dr1 = DisciplinaryResponse.create(code: 'G', name:'Principal\'s Suspension', description:'This can be 5 days or less')
-dr2 = DisciplinaryResponse.create(code: 'H', name:'Superintendent\'s suspension', description:'This will result in immediate reinstatement')
-dr3 = DisciplinaryResponse.create(code: 'E', name:'Detention', description:'Student comes after school or before school')
+dr1 = DisciplinaryResponse.create(code: 'G', description:'This can be 5 days or less')
+dr2 = DisciplinaryResponse.create(code: 'H', description:'This will result in immediate reinstatement')
+dr3 = DisciplinaryResponse.create(code: 'E', description:'Student comes after school or before school')
 
 
 gi1 = GuidanceIntervention.create(name: 'Parent Outreach', description: 'Ask parents to come in ')
