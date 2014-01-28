@@ -1,10 +1,17 @@
+
+
+
 <%= render "layouts/header.html.erb" %>
 
   <div class="container">
     <br>
     <%= yield %>
   </div>
-</body>
-</html>
+
 
 <%= render "layouts/footer.html.erb" %>
+
+
+<% flash.each do |name, msg| %>
+  <%= content_tag :div, msg, :id => "flash_#{name}" %>
+<% end %>

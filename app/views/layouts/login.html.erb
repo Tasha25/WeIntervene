@@ -55,6 +55,8 @@
 
 <!-- We use form_tag here because we are not editing a resource. The form is submitted to a sessions_path  -->
 <%= form_tag login_path do |f| %>
+
+
   <div class="row">
     <div class="form-group col-md-6">
       <%= label_tag :email %>
@@ -70,9 +72,10 @@
   </div>
 
   <div class="actions">
-    <%= submit_tag %>
+    <%= submit_tag "Enter" %>
   </div>
 <% end %>
 
 </section>
 </div>
+

@@ -30,6 +30,10 @@ class ServiceProvidersController < ApplicationController
     @service_provider = ServiceProvider.find(params[:id])
   end
 
+  def edit
+
+  end
+
 
 
   def cbo

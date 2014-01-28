@@ -11,6 +11,7 @@ Weintervene::Application.routes.draw do
   post 'posts' => 'service_providers#create'
 
 
+
   resources :schools do
     resources :users
     resources :students

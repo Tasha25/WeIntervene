@@ -15,8 +15,7 @@
 #
 
 class User < ActiveRecord::Base
-    #password attribute will never be saved to database but will eixt onlin memory for use in performing the password confirmation and encryption step
-    attr_accessor :password
+  attr_accessor :password
    attr_accessible(:user_name, :email, :school_id, :service_provider_id, :password, :password_confirmation)
 
    has_many :referrals
@@ -24,8 +23,6 @@ class User < ActiveRecord::Base
    has_many :incident_logs
    has_and_belongs_to_many :roles
    has_many :students, through: :schools
-
-
 
 
    # has_secure_password
@@ -45,9 +42,8 @@ class User < ActiveRecord::Base
 
   before_save :encrypt_password
 
+
   def has_password?(submitted_password)
-    #Compare encrypted_password with the encrypted version of
-    #submitted_password
     encrypted_password == encrypt(submitted_password)
   end
 

@@ -11,7 +11,7 @@ class SessionController < ApplicationController
       redirect_to user_path(user), :notice => "Logged in!"
     else
       flash.now.alert = "Invalid email or password"
-      redirect_to login_path
+      render :layout => "login"
     end
   end
 
