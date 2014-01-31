@@ -1,13 +1,22 @@
 
-<body id="service-provider">
+
+<body id="service-provider-show">
+
+<section class="container">
+  <div class="content row">
+    <section class="main col col-lg-8">
+
+      <%= render "main_service_provider_show.html.erb" %>
+
+    </section> <!--  main -->
+
+    <section class="sidebar col col-lg-4">
+      <h2> Side Bar </h2>
+       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, libero tempore iure quas eum sed nihil error similique. Est, nam, nesciunt unde quaerat aut expedita enim quasi! Facilis, quasi, asperiores.</p>
+    </section> <!-- sidebar -->
+  </div>  <!-- content -->
 
 
-
-<%= link_to("<<Back to List", {:action => 'index'}, :class => 'back-link') %>
-
-<h2> <%= @service_provider.name  %></h2>
-
-<h3> Mission</h3>
-<%= @service_provider.mission %>
+</section> <!-- container -->
 
 </body>

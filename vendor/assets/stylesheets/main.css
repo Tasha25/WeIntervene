@@ -9,10 +9,9 @@
   display: inline;
   font-weight: bold;
 }
-.referral-form {
 
-}
-
+.service-provider-all p{display: inline-block; }
+.service-provider-all span { display: block; }
 .navbar-collapse {
   padding-right: 60px;
 }
@@ -30,3 +29,4 @@
 
 
 .carousel-inner > .item > img { margin: 0 auto; }
+

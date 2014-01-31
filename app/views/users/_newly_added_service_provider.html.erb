@@ -2,6 +2,7 @@
 <table class="table table-striped table-bordered">
   <thead>
     <tr>
+
       <th> Added Date </th>
       <th> Name</th>
       <th> Mission</th>
@@ -12,6 +13,7 @@
   <tbody>
     <tr>
       <% @service_providers.each do |service_provider| %>
+
       <td> <%= service_provider.created_at.strftime("%b-%d-%Y") %></td>
       <td> <%= service_provider.name %></td>
       <td> <%= service_provider.mission %></td>

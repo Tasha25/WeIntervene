@@ -1,0 +1,31 @@
+        <h2> Service Providers </h2>
+
+
+        <table class="service-providers-list table table-striped">
+          <tr>
+            <th> select</th>
+            <th></th>
+          </tr>
+          <% @service_providers.each do |service_provider| %>
+          <tr>
+            <td>
+              check
+            </td>
+            <td>
+             <img src="http://placehold.it/48">
+             <p class="name"> Name: <%= service_provider.name %> </p>
+             <span>Mission: <%= service_provider.mission %></span>
+             <span> Guidance Interventions Targeted:
+              <% sc = [ ]  %>
+               <% service_provider.service_categories.each do |service_category| %>
+               <% sc << service_category.name %>
+               <% end %>
+               <%= sc.join(', ')  %> </span>
+               <span> Date Added: <%= service_provider.created_at.strftime("%Y-%m-%d") %> </span>
+               <%= link_to("Show", {:action => 'show', :id => service_provider.id}, :class => 'action show pull-right btn btn-xs btn-primary') %>
+             </td>
+           </tr>
+           <% end %>
+         </table>
+
+         <%= will_paginate @service_providers %>

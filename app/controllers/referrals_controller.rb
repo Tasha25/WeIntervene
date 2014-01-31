@@ -2,6 +2,7 @@ class ReferralsController < ApplicationController
  before_filter :require_authentication
 
  def index
+  @user = User.find_by_id(session[:user_id])
   @referral = Referral.all
 end
 
@@ -16,7 +17,6 @@ def create
 end
 
 def show
-
   @user = User.find_by_id(session[:user_id])
   @student = Student.find_by_id(params[:student_id])
   @referral = Referral.find_by_id(params[:id])
@@ -25,6 +25,7 @@ end
 def new
   @user = User.find_by_id(session[:user_id])
   @student = Student.find_by_id(params[:student_id])
+  @students = Student.all
   @service_providers = ServiceProvider.all
   @service_categories = ServiceCategory.all
   @referral = Referral.new

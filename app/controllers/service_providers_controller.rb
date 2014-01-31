@@ -2,7 +2,7 @@ class ServiceProvidersController < ApplicationController
 
   def index
     @user = User.find(params[:user_id])
-    @service_providers = ServiceProvider.order("service_providers.created_at DESC")
+    @service_providers = ServiceProvider.order("service_providers.created_at DESC").paginate(:page => params[:page], :per_page => 4)
     @service_categories = ServiceCategory.all
   end
 

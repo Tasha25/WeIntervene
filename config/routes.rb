@@ -8,6 +8,7 @@ Weintervene::Application.routes.draw do
   get '/logout' => 'session#destroy'
 
   match '/demo', to: 'users#demo'
+  match 'users/1/template', to: 'users#template'
   post 'posts' => 'service_providers#create'
 
 
