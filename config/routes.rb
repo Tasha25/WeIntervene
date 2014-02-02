@@ -25,6 +25,7 @@ Weintervene::Application.routes.draw do
     resources :incident_logs
     resources :service_providers
     resources :students
+    resources :service_categories
   end
 
    resources :students do

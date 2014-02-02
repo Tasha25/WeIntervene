@@ -4,7 +4,8 @@ class StudentsController < ApplicationController
   def index
     @user = User.find(params[:user_id])
     @students = Student.all
-    @students = Student.search(params[:search]) #moving the search into the student model
+    @students = Student.search(params[:search])
+
   end
 
   def new

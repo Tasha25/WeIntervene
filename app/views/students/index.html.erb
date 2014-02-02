@@ -1,38 +1,60 @@
 <body id="student-all">
 
-
-
-<%= form_tag({:controller => "students", :action => "index"}, :method => "get") do %>
-  <p>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search", :name => nil %>
-  </p>
-<% end %>
-
-
-<div class="row">
-
- <% @students.each do |student| %>
- <div class="student-demographic col-md-offset-2 col-md-8">
-
-   <img class="col-sm-4" src="<%= student.image_url %>">
-   <div class="student-info col-md-6">
-    <span class="name"><%= "#{student.first_name} #{student.last_name}" %></span>
-    <span><%= student.identification_number %></span>
-    <span><%= student.date_of_birth %></span>
-    <address>
-     <%= student.street1 %>
-     <%= student.city %>, <%= student.state %> <%= student.zip_code %>
-   </address>
-   <div>
-     <span class="counselor">Counselor</span>&nbsp;<%= student.counselor %>
-   </div>
-   <div>
-     <span class="cohort">Cohort</span>&nbsp;<%= student.cohort %>
-   </div>
- </div>
 </div>
-<% end %>
-</div>
+<section class="container">
+  <div class="content row">
+
+   <section class="left-sidebar col col-lg-2">
+    <h2> Inner left Side Bar </h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, libero tempore iure quas eum sed nihil error similique. Est, nam, nesciunt unde quaerat aut expedita enim quasi! Facilis, quasi, asperiores.</p>
+  </section> <!-- left-sidebar col col-lg-2 -->
+
+  <section class="main col col-lg-7">
+
+    <div id="students-list">
+
+      <div class="row">
+        <div class="col-md-offset-2 col-md-8">
+         <%= form_tag({:controller => "students", :action => "index"}, :method => "get") do %>
+         <p>
+          <%= text_field_tag :search, params[:search] %>
+          <%= submit_tag "Search", :name => nil %>
+        </p>
+        <% end %>
+      </div>
+
+       <% @students.each do |student| %>
+       <div class="student-demographic col-md-offset-2 col-md-8">
+
+
+        <img class="col-sm-4" src="<%= student.image_url %>">
+        <div class="student-info col-md-6">
+          <span class="name"><%= "#{student.first_name} #{student.last_name}" %></span>
+          <span><%= student.identification_number %></span>
+          <span><%= student.date_of_birth %></span>
+          <address>
+           <%= student.street1 %>
+           <%= student.city %>, <%= student.state %> <%= student.zip_code %>
+         </address>
+         <div>
+           <span class="counselor">Counselor</span>&nbsp;<%= student.counselor %>
+         </div>
+         <div>
+           <span class="cohort">Cohort</span>&nbsp;<%= student.cohort %>
+         </div>
+       </div>
+     </div>
+     <% end %>
+
+   </div>
+ </section> <!-- main col col-lg-6 -->
+
+ <section class="sidebar col col-lg-3">
+  <h2> Side Bar </h2>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, libero tempore iure quas eum sed nihil error similique. Est, nam, nesciunt unde quaerat aut expedita enim quasi! Facilis, quasi, asperiores.</p>
+
+</section> <!-- right sidebar -->
+</div>  <!-- content -->
+</section> <!-- container -->
 
 </body>

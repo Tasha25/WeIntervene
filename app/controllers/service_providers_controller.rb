@@ -40,4 +40,3 @@ class ServiceProvidersController < ApplicationController
     @user = User.find(params[:user_id])
   end
 end
-

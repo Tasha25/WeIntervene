@@ -16,6 +16,13 @@
   padding-right: 60px;
 }
 
+.service-providers-list p{display: inline-block; }
+
+.service-providers-list ul
+{
+list-style-type: none;
+}
+
 .widget .widget-header [class^="fa-"],
 .widget .widget-header [class*=" fa-"] {
   display: inline-block;
