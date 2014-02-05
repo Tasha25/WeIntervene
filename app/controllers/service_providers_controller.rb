@@ -1,11 +1,41 @@
+class Array
+  def total_pages
+    length / 4
+  end
+end
+
 class ServiceProvidersController < ApplicationController
 
   def index
     @user = User.find(params[:user_id])
-    @service_providers = ServiceProvider.order("service_providers.created_at DESC").paginate(:page => params[:page], :per_page => 4)
     @service_categories = ServiceCategory.all
-  end
+    if !params[:service_provider].nil? && !params[:service_provider][:service_category_ids].nil?
+      providers = ServiceProvider.
+        joins(:service_categories).
+        where(service_categories: { id: params[:service_provider][:service_category_ids] }).
+        order("service_providers.created_at DESC").
+        paginate(:page => params[:page], :per_page => 4)
+    end
 
+    if !params[:zip_code].nil?
+      if !providers.nil?
+        providers = providers.select do |provider|
+          provider.zip_code == params[:zip_code]
+        end
+      else
+        providers = ServiceProvider.select do |provider|
+          provider.zip_code == params[:zip_code]
+        end
+      end
+    end
+
+    if providers.nil?
+      providers = ServiceProvider.
+        order("service_providers.created_at DESC").
+        paginate(:page => params[:page], :per_page => 4)
+    end
+    @service_providers = providers
+  end
 
   def new
     @user = User.find_by_id(session[:user_id])
@@ -31,10 +61,7 @@ class ServiceProvidersController < ApplicationController
   end
 
   def edit
-
   end
-
-
 
   def cbo
     @user = User.find(params[:user_id])

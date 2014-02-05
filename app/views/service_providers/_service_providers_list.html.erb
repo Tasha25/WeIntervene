@@ -3,13 +3,13 @@
 
         <table class="service-providers-list table table-striped">
           <tr>
-            <th> select</th>
+            <th><input type="checkbox" name="select-all"></th>
             <th></th>
           </tr>
           <% @service_providers.each do |service_provider| %>
           <tr>
             <td>
-              check
+              <input type="checkbox" name="<%= service_provider.name %>">
             </td>
             <td>
              <img src="http://placehold.it/48">
