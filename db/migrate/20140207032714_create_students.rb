@@ -1,5 +1,5 @@
-class StudentsTable < ActiveRecord::Migration
-    def change
+class CreateStudents < ActiveRecord::Migration
+  def change
     create_table :students do |t|
       t.string :first_name
       t.string :middle_name
@@ -21,6 +21,7 @@ class StudentsTable < ActiveRecord::Migration
       t.string :grade_level
       t.string :offical
       t.string :cohort
+      t.string :gender
       t.timestamps
     end
   end

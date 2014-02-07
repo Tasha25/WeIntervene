@@ -1,3 +1,129 @@
+02/06/14
+
+Change the User migration file to
+
+class UsersTable < ActiveRecord::Migration
+  def change
+    create_table :users do |t|
+      t.string :user_name
+      t.string :password_digest
+      t.string :email
+      t.integer :school_id
+      t.integer :service_provider_id
+      t.timestamps
+    end
+  end
+end
+
+
+User.rb might have something that looks like this:
+
+class User < ActiveRecord::Base
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
+
+  # Setup accessible (or protected) attributes for your model
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :user_name, :school_id, :service_provider_id
+  attr_accessor :password
+
+   has_many :referrals
+   belongs_to :school
+   has_many :incident_logs
+   has_and_belongs_to_many :roles
+   has_many :students, through: :schools
+end
+
+
+Adding gender to students you can do the following:
+
+  Delete migration file
+
+Add the following to migration file
+class StudentsTable < ActiveRecord::Migration
+    def change
+    create_table :students do |t|
+      t.string :first_name
+      t.string :middle_name
+      t.string :last_name
+      t.string :suffix
+      t.string :identification_number
+      t.string :date_of_birth
+      t.integer :school_id
+      t.string :image_url
+      t.string :email
+      t.string :street1
+      t.string :street2
+      t.string :city
+      t.string :state
+      t.string :zip_code
+      t.string :phone
+      t.string :cell_phone
+      t.string :counselor
+      t.string :grade_level
+      t.string :offical
+      t.string :cohort
+      t.string :gender
+      t.timestamps
+    end
+  end
+end
+
+
+  Change the student.rb file to
+
+class Student < ActiveRecord::Base
+
+  attr_accessible :image_url, :first_name, :middle_name, :last_name, :suffix, :identification_number, :date_of_birth, :school_id, :email, :street1, :street2, :city, :state, :zip_code, :phone, :cell_phone, :counselor, :cohort, :grade_level
+
+  belongs_to :school
+  has_and_belongs_to_many :parents
+  has_many :incident_logs
+  has_many :users, through: :schools
+
+  def full_name
+    "#{first_name} #{last_name}"
+  end
+
+  def self.search(search)
+    if search
+      where('first_name LIKE ? OR last_name LIKE ? OR identification_number LIKE ?', "%#{search}%", "%#{search}%", "%#{search}%")
+    else
+      scoped
+    end
+  end
+
+end
+
+
+
+change the disciplinary_response files
+
+Migration file
+
+class DisciplinaryResponsesTable < ActiveRecord::Migration
+  def change
+    create_table :disciplinary_responses do |t|
+      t.string :code
+      t.string :description
+      t.timestamps
+    end
+  end
+end
+
+
+class DisciplinaryResponse < ActiveRecord::Base
+   attr_accessible :code, :description
+
+   has_and_belongs_to_many :incident_logs
+
+end
+
+
+
+
+========
 01/26/14
 
 As a Dean

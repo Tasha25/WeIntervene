@@ -34,4 +34,7 @@ Weintervene::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  #this needs to change to domain name when we are in production
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 end

@@ -1,19 +1,3 @@
-# == Schema Information
-#
-# Table name: users
-#
-#  id                  :integer          not null, primary key
-#  user_name           :string(255)
-#  password_digest     :string(255)
-#  email               :string(255)
-#  school_id           :integer
-#  service_provider_id :integer
-#  created_at          :datetime         not null
-#  updated_at          :datetime         not null
-#  encrypted_password  :string(255)
-#  salt                :string(255)
-#
-
 class User < ActiveRecord::Base
 before_save { self.email = email.downcase }
 
@@ -69,9 +53,5 @@ before_save { self.email = email.downcase }
     def secure_hash(string)
       Digest::SHA2.hexdigest(string)
     end
-
 end
 
-
-
-  #TODO: one of the test in user_spec is not working
