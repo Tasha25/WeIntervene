@@ -7,7 +7,6 @@ class ReferralsController < ApplicationController
 end
 
 def create
-  binding.pry
   @user = User.find(session[:user_id]) # user that makes the referral
   student_ids = params[:students].split(',')
   service_provider = ServiceProvider.find(params[:service_provider_id])
