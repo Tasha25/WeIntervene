@@ -12,12 +12,13 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery-min
+//= require jquery-v1.8-min
+//= require jquery-v1.9-min
 //= require jquery-ui-custom-min
-//= require ui-lightness-jquery
 //= require base_application
 //= require bootstrap
 //= require myscript
+//= PDFTooltipCheck
 //= require_tree .
 
 

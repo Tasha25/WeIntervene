@@ -23,7 +23,7 @@ $(function() {
     $('.dropdown-menu', this).fadeOut('fast');
   }); //hover over navigation
 
-  $(".pagination a").live("click", function() {
+  $(".pagination a").on("click", function() {
     $(".pagination").html("Looking for Service Providers ...");
     $.get(this.href, null, null, "script");
     return false;

@@ -1,0 +1,13 @@
+
+<% if @students.length %>
+  <ul class="students-list">
+    <% @students.each do |student| %>
+      <li class="student-item">
+        <input type="checkbox" name= "students" value= <%= student.id %>>
+        <img src="http://placehold.it/100x100">
+        <span class="name"><%= student.full_name %></span>
+    </li>
+    <% end %>
+  </ul>
+  <button type="button" class="make-referrals" data-toggle="modal" data-target=".modal">Make Referrals</button>
+<% end %>

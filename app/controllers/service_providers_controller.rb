@@ -1,3 +1,4 @@
+# TODO: find a better fix for this for pagination
 class Array
   def total_pages
     length / 4
@@ -5,7 +6,6 @@ class Array
 end
 
 class ServiceProvidersController < ApplicationController
-
   def index
     @user = User.find(params[:user_id])
     @service_categories = ServiceCategory.all
@@ -57,6 +57,8 @@ class ServiceProvidersController < ApplicationController
 
   def show
     @user = User.find(params[:user_id])
+    @students = @user.school.students
+    @referral = Referral.new
     @service_provider = ServiceProvider.find(params[:id])
   end
 

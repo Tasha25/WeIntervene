@@ -28,6 +28,10 @@ Weintervene::Application.routes.draw do
     resources :service_categories
   end
 
+  resources :service_providers do
+    resources :referrals
+  end
+
    resources :students do
     resources :referrals
     resources :incident_logs

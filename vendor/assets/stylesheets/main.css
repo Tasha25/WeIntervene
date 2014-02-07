@@ -37,3 +37,23 @@ list-style-type: none;
 
 .carousel-inner > .item > img { margin: 0 auto; }
 
+.students-list { padding: 0; }
+.students-list li {
+  list-style: none;
+  border-top: 1px solid lightgrey;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+.students-list input[type="checkbox"] {
+  vertical-align: middle;
+  height: 17px;
+  width: 17px;
+}
+.students-list .name {
+  vertical-align: top;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.make-referrals { display: none; }
+

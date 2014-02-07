@@ -2,21 +2,64 @@
 
 <body id="service-provider-show">
 
-<section class="container">
-  <div class="content row">
-    <section class="main col col-lg-8">
+  <section class="container">
+    <div class="content row">
+      <section class="main col col-lg-8">
 
-      <%= render "main_service_provider_show.html.erb" %>
+        <%= render "main_service_provider_show.html.erb" %>
 
-    </section> <!--  main -->
+      </section> <!--  main -->
 
-    <section class="sidebar col col-lg-4">
-      <h2> Side Bar </h2>
-       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, libero tempore iure quas eum sed nihil error similique. Est, nam, nesciunt unde quaerat aut expedita enim quasi! Facilis, quasi, asperiores.</p>
-    </section> <!-- sidebar -->
-  </div>  <!-- content -->
+      <section class="sidebar col col-lg-4">
+        <h2> Side Bar </h2>
+        <p><%= render 'shared/students_list' %></p>
+      </section> <!-- sidebar -->
+    </div>  <!-- content -->
 
 
-</section> <!-- container -->
-
+  </section> <!-- container -->
+  <div class="modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">Make Referral(s)</h4>
+        </div>
+        <%= form_tag service_provider_referrals_path(@service_provider), method: :post do %>
+        <div class="modal-body">
+          <p> <%= text_area_tag 'comment' %> </p>
+          <%= hidden_field_tag 'service_provider_id', value: @service_provider.id %>
+          <%= hidden_field_tag 'students' %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Submit Referrals</button>
+        </div>
+        <% end %>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+  <script>
+  $(document).ready(function() {
+    // TODO: only checks is first checkbox is checked -- fixxxxx
+    var $checkboxes = $('.students-list input[type="checkbox"]');
+    var checked;
+    $checkboxes.on('click', function() {
+      checked = [];
+      $checkboxes.each (function(index, checkbox) {
+        if ($(checkbox).is(":checked")){
+          checked.push($(checkbox).val());
+        }
+      });
+      if (checked.length){
+       $('.make-referrals').show();
+     } else {
+      $('.make-referrals').hide();
+    }
+  });
+    $('.make-referrals').on('click', function() {
+        alert(checked.join(',')); $('#students').val(checked.join(','));
+    });
+  });
+  </script>
 </body>

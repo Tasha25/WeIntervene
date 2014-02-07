@@ -38,7 +38,7 @@
                 <% @referrals.each do |referral| %>
                 <tr>
                   <td> <%= referral.created_at.strftime("%b-%d-%Y") %></td>
-                  <td> <%= referral.student.full_name %></td>
+                  <td> <%= referral.student.full_name rescue nil %></td>
                   <td> <%= referral.comment %></td>
                   <td><% referral.service_providers.each do |service_provider| %>
                     <%= service_provider.name %>

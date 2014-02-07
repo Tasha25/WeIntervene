@@ -11,7 +11,6 @@ class StudentsController < ApplicationController
   def new
     @user = User.find(params[:user_id])
     @student = Student.new
-
   end
 
   def create

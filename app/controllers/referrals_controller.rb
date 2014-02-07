@@ -1,5 +1,5 @@
 class ReferralsController < ApplicationController
- before_filter :require_authentication
+ # before_filter :require_authentication
 
  def index
   @user = User.find_by_id(session[:user_id])
@@ -7,12 +7,24 @@ class ReferralsController < ApplicationController
 end
 
 def create
-  @user = User.find(session[:user_id])
-  @referral = Referral.new(params[:referral])
-  if @referral.save
-    redirect_to @user
-  else
-    render :new
+  binding.pry
+  @user = User.find(session[:user_id]) # user that makes the referral
+  student_ids = params[:students].split(',')
+  service_provider = ServiceProvider.find(params[:service_provider_id])
+
+  # pseudo code
+  student_ids.each do |student_id|
+    new_referral = Referral.create(
+      :user => User.find(session[:user_id]),
+      :student => User.find(student_id),
+      :comment => params[:comment],
+      :service_provider => service_provider
+    )
+    if new_referral.save
+      redirect_to @user
+    else
+      render :new
+    end
   end
 end
 
