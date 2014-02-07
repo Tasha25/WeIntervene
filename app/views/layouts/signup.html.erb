@@ -51,6 +51,9 @@
 
 </nav>  <!-- /.navbar navbar-inverse -->
 
+<%= flash[:notice] %>
+
+
 <div class="account-container register stacked">
 <section class="content clearfix">
 
@@ -58,7 +61,7 @@
 
 
     <%= form_for(@user) do |f| %>
-
+<%= render 'shared/error_messages' %>
         <div class="field">
         <%= f.label :school %><br>
         <%= f.select 'school_id', options_from_collection_for_select(School.all, :id, :name), {:class=>"form-control", :style => "size: 100px"} %>

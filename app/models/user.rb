@@ -15,6 +15,8 @@
 #
 
 class User < ActiveRecord::Base
+before_save { self.email = email.downcase }
+
   attr_accessor :password
    attr_accessible(:user_name, :email, :school_id, :service_provider_id, :password, :password_confirmation)
 
@@ -34,6 +36,7 @@ class User < ActiveRecord::Base
    validates :email, :presence => true,
                       :format  => { :with => email_regex },
                       :uniqueness => { :case_sensitive => false }
+
 
   validates :password, :presence => false,
                         :confirmation => true,

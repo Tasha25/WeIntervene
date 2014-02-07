@@ -17,7 +17,7 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to @user, :notice => "Signed up!"
     else
-      render action: "new"
+      render :action => :new, :layout => "signup"
     end
   end
 
