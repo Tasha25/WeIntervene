@@ -1359,7 +1359,7 @@ ul.pagination li.active a:hover {
   border-color: #e0e0e0;
 }
 .btn-primary {
-  background-image: -webkit-gradient(linear, left 0%, left 100%, from(#B800FF), to(##8B00CC));
+  background-image: -webkit-gradient(linear, left 0%, left 100%, from(#B800FF), to(#8B00CC));
   background-image: -webkit-linear-gradient(top, #B800FF, 0%, #8B00CC , 100%);
   background-image: -moz-linear-gradient(top, #B800FF 0%, #8B00CC 100%);
   background-image: linear-gradient(to bottom, #B800FF 0%, #8B00CC  100%);
