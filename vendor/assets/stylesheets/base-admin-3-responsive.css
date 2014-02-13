@@ -1,5 +1,5 @@
-[1. Max Width: 480px]
-*/
+/*[1. Max Width: 480px]*/
+
 @media (max-width: 480px) {
   .error-container h1 {
     font-size: 72px;
