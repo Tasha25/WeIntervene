@@ -11,7 +11,7 @@ before_save { self.email = email.downcase }
    has_many :students, through: :schools
 
 
-   # has_secure_password
+  # has_secure_password
 
    email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 

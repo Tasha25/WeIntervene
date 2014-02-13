@@ -2,10 +2,13 @@ class StudentsController < ApplicationController
   before_filter :require_authentication
 
   def index
-    @user = User.find(params[:user_id])
-    @students = Student.all
-    @students = Student.search(params[:search])
+    @user = User.find(session[:user_id])
+    @students = Student.where(:school_id => @user.school_id)
 
+    if !params[:search].nil? && !params[:search].empty?
+    #say: If parms[:search] is not nil and not empty
+      @students = Student.search(params[:search], @user.school_id)
+    end
   end
 
   def new

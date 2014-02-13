@@ -17,7 +17,7 @@ class ServiceProvidersController < ApplicationController
         paginate(:page => params[:page], :per_page => 4)
     end
 
-    if !params[:zip_code].nil?
+    if !params[:zip_code].nil? && !params[:zip_code].empty?
       if !providers.nil?
         providers = providers.select do |provider|
           provider.zip_code == params[:zip_code]
@@ -28,6 +28,7 @@ class ServiceProvidersController < ApplicationController
         end
       end
     end
+
 
     if providers.nil?
       providers = ServiceProvider.

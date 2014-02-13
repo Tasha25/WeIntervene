@@ -12,9 +12,20 @@ class Student < ActiveRecord::Base
     "#{first_name} #{last_name}"
   end
 
-  def self.search(search)
+  def self.search(search, school_id)
     if search
-      where('first_name LIKE ? OR last_name LIKE ? OR identification_number LIKE ?', "%#{search}%", "%#{search}%", "%#{search}%")
+      where('
+        (
+        first_name LIKE ?
+        OR last_name LIKE ?
+        OR identification_number LIKE ?
+        )
+        AND school_id = ?',
+        "%#{search}%",
+        "%#{search}%",
+        "%#{search}%",
+        "#{school_id}"
+        )
     else
       scoped
     end

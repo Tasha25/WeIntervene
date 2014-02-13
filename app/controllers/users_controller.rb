@@ -15,7 +15,9 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
-      redirect_to @user, :notice => "Signed up!"
+    session[:user_id] = @user.id
+    flash[:notice] = "Thank you for signing up! You are now logged in."
+      redirect_to @user
     else
       render :action => :new, :layout => "signup"
     end
