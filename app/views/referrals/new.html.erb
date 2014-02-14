@@ -2,34 +2,17 @@
 <body id="referral-new">
 
 <div class="referral-form">
-   <div class="row">
-      <h1 class="col-md-offset-2 col-md-8"> Referral Form </h1>
-   </div>
-   <div class="row">
-      <div class="student-demographic col-md-offset-2 col-md-8">
-
-         <% @students.each do |student| %>
-         <img class="col-sm-4" src="<% student.image_url %>">
-         <div class="student-info col-md-6">
-            <span class="name"><% "#{student.first_name} #{student.last_name}" %></span>
-            <span><% student.identification_number %></span>
-            <span><% student.date_of_birth %></span>
-            <address>
-               <% student.street1 %>
-               <% student.city %>  <% student.zip_code %>
-            </address>
-            <div>
-               <span class="counselor"></span>&nbsp;<% student.counselor %>
-            </div>
-            <div>
-               <span class="cohort"></span>&nbsp;<% student.cohort %>
-            </div>
-         </div>
-         <% end %>
-      </div>
-   </div>
 
    <%= form_for [@user, @referral] do |f| %>
+
+
+     <div class="row">
+         <div class="form-group col-md-8 col-md-offset-2">
+
+            <%= f.select 'student_id', options_from_collection_for_select(User.find_by_id(session[:user_id]).school.students, :id, :full_name), class: 'form-control ', cols: 10, rows: 5 %>
+         </div>
+      </div>
+
       <div class="row">
          <div class="form-group col-md-8 col-md-offset-2">
           <h2>Comment</h2>

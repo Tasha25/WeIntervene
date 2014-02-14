@@ -1,3 +1,37 @@
+021314
+
+   <div class="row">
+      <h1 class="col-md-offset-2 col-md-8"> Referral Form </h1>
+   </div>
+   <div class="row">
+      <div class="student-demographic col-md-offset-2 col-md-8">
+
+         <% @students.each do |student| %>
+         <img class="col-sm-4" src="<% student.image_url %>">
+         <div class="student-info col-md-6">
+            <span class="name"><% "#{student.first_name} #{student.last_name}" %></span>
+            <span><% student.identification_number %></span>
+            <span><% student.date_of_birth %></span>
+            <address>
+               <% student.street1 %>
+               <% student.city %>  <% student.zip_code %>
+            </address>
+            <div>
+               <span class="counselor"></span>&nbsp;<% student.counselor %>
+            </div>
+            <div>
+               <span class="cohort"></span>&nbsp;<% student.cohort %>
+            </div>
+         </div>
+         <% end %>
+      </div>
+   </div>
+
+   ### The above is away to present students information.
+
+
+
+
 * Bootstrap Responsive v2.3.1
  *
  * Copyright 2012 Twitter, Inc
