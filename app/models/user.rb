@@ -1,8 +1,10 @@
+require 'digest'
 class User < ActiveRecord::Base
+
 before_save { self.email = email.downcase }
 
   attr_accessor :password
-   attr_accessible(:user_name, :email, :school_id, :service_provider_id, :password, :password_confirmation)
+   attr_accessible(:user_name, :email, :school_id, :service_provider_id, :password, :password_confirmation, :encrypted_password)
 
    has_many :referrals
    belongs_to :school
@@ -32,6 +34,12 @@ before_save { self.email = email.downcase }
 
   def has_password?(submitted_password)
     encrypted_password == encrypt(submitted_password)
+  end
+
+  def self.authenticate(user_name, submitted_password)
+    user = find_by_user_name(user_name)
+    return nil if user.nil?
+    return user if user.has_password?(submitted_password)
   end
 
   private
