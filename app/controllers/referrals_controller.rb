@@ -18,8 +18,6 @@ def create
       :comment => params[:comment],
       :service_provider_ids => params[:service_provider_id]
     )
-
-    binding.pry
     if new_referral.save
       redirect_to @user
     else
