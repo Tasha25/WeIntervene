@@ -6,7 +6,8 @@ class Student < ActiveRecord::Base
   belongs_to :school
   has_and_belongs_to_many :parents
   has_many :incident_logs
-  has_many :users, through: :schools
+  has_many :referrals
+  # has_many :users, through: :schools
 
   def full_name
     "#{first_name} #{last_name}"

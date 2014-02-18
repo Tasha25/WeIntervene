@@ -1,5 +1,5 @@
+<body id="incident-log-all">
 
-<body id="referral-all">
 
   <section class="container">
     <div class="content row">
@@ -11,31 +11,27 @@
 
     <section class="main col col-lg-7">
 
-      <div id="referrals-list">
+      <div id="incident-log-list">
 
 <%= @user.user_name.capitalize %> from <%= @user.school.name %><br><br>
 
-
-Your referrals:
-<div class="referrals">
+Your incidents:
+<div class="incident-logs">
 
  <table class="table table-striped">
   <tr>
     <td> Date</td>
     <td> Student</td>
     <td> Comment</td>
-    <td> Resource</td>
+
   </tr>
 
-    <% @referrals_user.each do |referral|  %>
+    <% @incident_logs.each do |incident_log|  %>
   <tr>
 
-    <td><%= referral.student.created_at.strftime("%m/%d/%Y") %></td>
-    <td><%= referral.student.full_name %></td>
-    <td><%= referral.comment.capitalize %></td>
-    <td><% referral.service_providers.each do |service_provider| %>
-      <%= service_provider.name %></td>
-      <%end %>
+    <td><%= incident_log.student.created_at.strftime("%m/%d/%Y") %></td>
+    <td><%= incident_log.student.full_name %></td>
+    <td><%= incident_log.comment.capitalize %></td>
 
     </tr>
      <%end %>

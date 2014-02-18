@@ -1,0 +1,42 @@
+<body id="incident-log-new">
+<%= @user.user_name.capitalize %>
+
+You are creating an incident
+  <div>
+      <h1> Incident Log </h1>
+
+      <%= form_for([@user, @incident_log]) do |f| %>
+      Student: <%= f.select "student_id",
+      options_from_collection_for_select(Student.all, :id, :full_name)
+       %> <br>
+
+      Infraction </br>
+
+      <% Infraction.all.each do |infraction|  %>
+      <input type="checkbox" name="infraction_ids" value="<%=infraction.id%>">
+      <%=infraction.code %> | <%=infraction.description %> <br>
+      <% end %></br>
+
+      Comment </br>
+      <%= f.text_area :comment, style: "width: 500px; height: 200px", placeholder: "Type comment here..." %></br>
+
+      Disciplinary Response:</br>
+
+      <% DisciplinaryResponse.all.each do |disciplinary_response|  %>
+
+      <input type="checkbox" name="disciplinary_response_ids" value="<%=disciplinary_response.id%>">
+      <%=disciplinary_response.description %> <br>
+      <% end %></br>
+
+      Guidance Intervention: </br>
+      <% GuidanceIntervention.all.each do |guidance_intervention|  %>
+      <input type="checkbox" name="guidance_intervention_ids" value="<%=guidance_intervention.id%>">
+        <%=guidance_intervention.name %></br>
+      <% end %></br>
+
+
+      <%= f.submit %>
+      <%= f.hidden_field "user_id", :value=> @user.id %>
+      <% end %>
+    </div>
+</body>

@@ -10,7 +10,7 @@ before_save { self.email = email.downcase }
    belongs_to :school
    has_many :incident_logs
    has_and_belongs_to_many :roles
-   has_many :students, through: :schools
+   # has_many :students, through: :schools
 
 
   # has_secure_password

@@ -134,6 +134,21 @@
             </ul>
           </li>
 
+           <li class="dropdown">
+            <a href= <%= user_incident_logs_path(@user)%>>
+              <i class="fa fa-legal"></i>
+              <span>Incident Logs</span>
+              <b class="caret"></b>
+            </a>
+
+
+            <ul class="dropdown-menu">
+              <li><a href="<%= new_user_incident_log_path(@user) %>">
+                New Incident
+              </a></li>
+            </ul>
+          </li>
+
 
         </ul> <!--  /.mainnav -->
       </div> <!-- /.subnav-collapse -->
