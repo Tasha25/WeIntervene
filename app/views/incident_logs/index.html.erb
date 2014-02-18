@@ -13,40 +13,40 @@
 
       <div id="incident-log-list">
 
-<%= @user.user_name.capitalize %> from <%= @user.school.name %><br><br>
+        <%= @user.user_name.capitalize %> from <%= @user.school.name %><br><br>
 
-Your incidents:
-<div class="incident-logs">
+        Your incidents:
+        <div class="incident-logs">
 
- <table class="table table-striped">
-  <tr>
-    <td> Date</td>
-    <td> Student</td>
-    <td> Comment</td>
+         <table class="table table-striped">
+          <tr>
+            <td> Date</td>
+            <td> Student</td>
+            <td> Comment</td>
 
-  </tr>
+          </tr>
 
-    <% @incident_logs.each do |incident_log|  %>
-  <tr>
+          <% @incident_logs.each do |incident_log|  %>
+          <tr>
 
-    <td><%= incident_log.student.created_at.strftime("%m/%d/%Y") %></td>
-    <td><%= incident_log.student.full_name %></td>
-    <td><%= incident_log.comment.capitalize %></td>
+            <td><%= incident_log.student.created_at.strftime("%m/%d/%Y") %></td>
+            <td><%= incident_log.student.full_name %></td>
+            <td><%= incident_log.comment.capitalize %></td>
 
-    </tr>
-     <%end %>
-  </table>
-  <div>
+          </tr>
+          <%end %>
+        </table>
+        <div>
 
-Referrals in the school:
-
-
+          Referrals in the school:
 
 
-      </div>
-       </section> <!-- main col col-lg-6 -->
 
-       <section class="sidebar col col-lg-3">
+
+        </div>
+      </section> <!-- main col col-lg-6 -->
+
+      <section class="sidebar col col-lg-3">
         <h2> Side Bar </h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, libero tempore iure quas eum sed nihil error similique. Est, nam, nesciunt unde quaerat aut expedita enim quasi! Facilis, quasi, asperiores.</p>
 

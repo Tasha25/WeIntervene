@@ -1,5 +1,4 @@
 <div class="incidents">
-  <h2> <%= @user.user_name.capitalize %>'s Incidents</h2>
   <table class="table table-striped">
     <tr>
       <td> Date</td>
@@ -12,8 +11,8 @@
 
     <% @user.incident_logs.each do |log|  %>
     <tr>
-      <td><%= log.created_at.strftime("%m/%d/%Y") %></td>
-      <td> <%= log.student.first_name %></td>
+      <td><%= log.created_at.strftime("%b-%d-%Y") %></td>
+      <td> <%= log.student.full_name %></td>
       <td><%= log.comment %></td>
       <% if (log.infractions.length > 0) %>
       <% log.infractions.each do |infraction| %>

@@ -28,7 +28,7 @@ class UsersController < ApplicationController
     @referral = Referral.new
     @students = Student.order("students.created_at DESC").limit(5)
     @referrals = Referral.order("referrals.created_at DESC").limit(4)
-    @incident_log = IncidentLog.all
+    @incident_logs = IncidentLog.all
     @service_providers = ServiceProvider.order("service_providers.created_at DESC").limit(5)
   end
 
