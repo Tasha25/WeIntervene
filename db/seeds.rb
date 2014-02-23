@@ -74,11 +74,23 @@ s2.service_categories << ServiceCategory.all[1]
 s3.service_categories << ServiceCategory.all[2]
 s4.service_categories << ServiceCategory.all[3]
 
-stud1 = Student.create(image_url: 'assets/images/students/1.jpeg', first_name: 'John', last_name: 'Doe', identification_number: '123456789',  date_of_birth: '12/13/99', school_id:'1', email: 'student@gmail.com', street1: ' 123 Main Street', street2: '', city: 'Bronx', zip_code: '10469', phone:'718-231-1000', cell_phone:'646-1000',  counselor: 'Ms.Nice', cohort: '2018', grade_level: '9')
+stud1 = Student.create(image_url: '1.jpeg', first_name: 'John', last_name: 'Doe', identification_number: '123456789',  date_of_birth: '12/13/99', school_id:'1', email: 'student@gmail.com', street1: ' 123 Main Street', street2: '', city: 'Bronx', zip_code: '10469', phone:'718-231-1000', cell_phone:'646-1000',  counselor: 'Ms.Nice', cohort: '2018', grade_level: '9')
 
-stud2 = Student.create(image_url: 'assets/images/students/2.jpeg',first_name: 'Clarissa', last_name: 'Burke', identification_number: '11122233', date_of_birth: '1/19/98', school_id:'1',email: 'student@gmail.com', street1: ' 123 Main Street', street2: '', city: 'Bronx', zip_code: '10469', phone:'718-231-1000', cell_phone:'646-1000',  counselor: 'Ms.Nice', cohort: '2017', grade_level: '10')
+stud2 = Student.create(image_url: '2.jpeg',first_name: 'Clarissa', last_name: 'Burke', identification_number: '11122233', date_of_birth: '1/19/98', school_id:'1',email: 'student@gmail.com', street1: ' 123 Main Street', street2: '', city: 'Bronx', zip_code: '10469', phone:'718-231-1000', cell_phone:'646-1000',  counselor: 'Ms.Nice', cohort: '2017', grade_level: '10')
 
-stud3 = Student.create(image_url: 'assets/images/students/3.jpeg', first_name: 'Tom', last_name: 'Hanks', identification_number: '237849679', date_of_birth: '2/10/97', school_id:'2', email: 'student@gmail.com', street1: ' 123 Main Street', street2: '', city: 'Bronx', zip_code: '10469', phone:'718-231-1000', cell_phone:'646-1000', counselor: 'Ms.Nice', cohort: '2016', grade_level: '11')
+stud3 = Student.create(image_url: '3.jpeg', first_name: 'Tom', last_name: 'Hanks', identification_number: '237849679', date_of_birth: '2/10/97', school_id:'2', email: 'student@gmail.com', street1: ' 123 Main Street', street2: '', city: 'Bronx', zip_code: '10469', phone:'718-231-1000', cell_phone:'646-1000', counselor: 'Ms.Nice', cohort: '2016', grade_level: '11')
+
+stud1 = Student.create(image_url: '1.jpeg', first_name: 'John2', last_name: 'Doe', identification_number: '123456789',  date_of_birth: '12/13/99', school_id:'1', email: 'student@gmail.com', street1: ' 123 Main Street', street2: '', city: 'Bronx', zip_code: '10469', phone:'718-231-1000', cell_phone:'646-1000',  counselor: 'Ms.Nice', cohort: '2018', grade_level: '9')
+
+stud2 = Student.create(image_url: '2.jpeg',first_name: 'Clarissa2', last_name: 'Burke', identification_number: '11122233', date_of_birth: '1/19/98', school_id:'1',email: 'student@gmail.com', street1: ' 123 Main Street', street2: '', city: 'Bronx', zip_code: '10469', phone:'718-231-1000', cell_phone:'646-1000',  counselor: 'Ms.Nice', cohort: '2017', grade_level: '10')
+
+stud3 = Student.create(image_url: '3.jpeg', first_name: 'Tom2', last_name: 'Hanks', identification_number: '237849679', date_of_birth: '2/10/97', school_id:'2', email: 'student@gmail.com', street1: ' 123 Main Street', street2: '', city: 'Bronx', zip_code: '10469', phone:'718-231-1000', cell_phone:'646-1000', counselor: 'Ms.Nice', cohort: '2016', grade_level: '11')
+
+stud4 = Student.create(image_url: '4.jpeg', first_name: 'John3', last_name: 'Doe', identification_number: '123456789',  date_of_birth: '12/13/99', school_id:'1', email: 'student@gmail.com', street1: ' 123 Main Street', street2: '', city: 'Bronx', zip_code: '10469', phone:'718-231-1000', cell_phone:'646-1000',  counselor: 'Ms.Nice', cohort: '2018', grade_level: '9')
+
+stud5 = Student.create(image_url: '5.jpeg',first_name: 'Clarissa3', last_name: 'Burke', identification_number: '11122233', date_of_birth: '1/19/98', school_id:'1',email: 'student@gmail.com', street1: ' 123 Main Street', street2: '', city: 'Bronx', zip_code: '10469', phone:'718-231-1000', cell_phone:'646-1000',  counselor: 'Ms.Nice', cohort: '2017', grade_level: '10')
+
+stud6 = Student.create(image_url: '6.jpeg', first_name: 'Tom3', last_name: 'Hanks', identification_number: '237849679', date_of_birth: '2/10/97', school_id:'2', email: 'student@gmail.com', street1: ' 123 Main Street', street2: '', city: 'Bronx', zip_code: '10469', phone:'718-231-1000', cell_phone:'646-1000', counselor: 'Ms.Nice', cohort: '2016', grade_level: '11')
 
 Parent.create(first_name: 'Harold', last_name: 'Doe', street1: '900 Broadway', work_phone: '234564662', email: 'harold@gmail.com')
 Parent.create(first_name: 'Fiona', last_name: 'Taylor', street1: '901 Broadway', work_phone: '12233234', email: 'fiona@gmail.com')

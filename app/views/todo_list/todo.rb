@@ -1,5 +1,21 @@
-021714
+022314
 
+Phase 0
+# Need to loop through from 1 to the page_count -->
+    <% if @page_count %>
+      <a href="/users/<%="#{@user_page_id}"%>/students?page=<%=@page_count%>"> Page <%="#{@page_count}"%> </a>
+# We have to use #page_count in order to show the different pages.
+
+
+
+# this shows a little bit about what needs to be done
+
+    <% i = 0 %>
+    <% while i < @page_count do %>
+      <a href="/users/<%="#{@user_page_id}"%>/students?page=<%=i%>"> Page <%="#{i}"%> </a>
+      <% i +=1 %>
+# Need to loop through from 1 to the page_count
+      <% end %>
 
 021314
 
