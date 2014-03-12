@@ -97,10 +97,10 @@ Parent.create(first_name: 'Fiona', last_name: 'Taylor', street1: '901 Broadway',
 Parent.create(first_name: 'Lizzie', last_name: 'Salt',street1: '902 Broadway', work_phone: '99989888', email:'lizzie@gmail.com')
 Parent.create(first_name: 'Tilla', last_name: 'Doe', street1: '903 Broadway', work_phone: '234564662')
 
-r1 = Referral.create( comment: 'Student needs some help with anger issues', user_id: '4' , student_id: '2' )
-r2 = Referral.create( comment: 'Student needs counseling', user_id: '4' , student_id: '3' )
-r3 = Referral.create( comment: 'gang intervention', user_id: '2' , student_id: '1' )
-r4 = Referral.create( comment: 'gang leader', user_id: '1' , student_id: '3' )
+r1 = Referral.create( comment: 'Student needs some help with anger issues', user_id: '4' , student_id: '2', school_id: '1' )
+r2 = Referral.create( comment: 'Student needs counseling', user_id: '4' , student_id: '3', school_id: '1' )
+r3 = Referral.create( comment: 'gang intervention', user_id: '2' , student_id: '1', school_id: '1' )
+r4 = Referral.create( comment: 'gang leader', user_id: '1' , student_id: '3', school_id: '1' )
 
 
 

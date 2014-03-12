@@ -24,7 +24,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.find(session[:user_id])
     @referral = Referral.new
     @students = Student.order("students.created_at DESC").limit(5)
     @referrals = Referral.order("referrals.created_at DESC").limit(4)

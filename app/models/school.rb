@@ -27,5 +27,6 @@ attr_accessible(:name,  :mission, :image_url, :website, :email, :street1, :stree
 
   has_many :users
   has_many :students
+  has_many :referrals
   belongs_to :school_district
 end

@@ -87,6 +87,7 @@ ActiveRecord::Schema.define(:version => 20140214003759) do
     t.string   "comment"
     t.integer  "user_id"
     t.integer  "student_id"
+    t.integer  "school_id",  :null => false
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -221,7 +222,7 @@ ActiveRecord::Schema.define(:version => 20140214003759) do
     t.string   "email"
     t.string   "salt"
     t.string   "encrypted_password"
-    t.integer  "school_id"
+    t.integer  "school_id",           :null => false
     t.integer  "service_provider_id"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false

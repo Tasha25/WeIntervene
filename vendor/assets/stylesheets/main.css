@@ -1,3 +1,22 @@
+/*.students-demographics-list p{
+display: inline-block;
+}
+
+.students-demographics-list { padding: 0; }
+.students-demographics-list li {
+  list-style: none;
+  border-top: 1px solid lightgrey;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+.students-demographics-list input[type="checkbox"] {
+  vertical-align: middle;
+  height: 17px;
+  width: 17px;
+}
+
+*/
+
 .student-demographic { display: inline-block; }
 .student-demographic span { display: block; }
 .student-demographic img { padding-left: 0; }

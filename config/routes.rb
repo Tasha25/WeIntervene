@@ -17,6 +17,7 @@ Weintervene::Application.routes.draw do
   resources :schools do
     resources :users
     resources :students
+    resources :referrals
   end
 
   resources :users do
@@ -24,20 +25,15 @@ Weintervene::Application.routes.draw do
     match '/service_providers/cbo' => 'service_providers#cbo', as: :cbo
     resources :referrals
     resources :incident_logs
-    resources :service_providers
-    resources :students
     resources :service_categories
   end
 
-  resources :service_providers do
-    resources :referrals
-  end
+  resources :service_providers
 
    resources :students do
     resources :referrals
     resources :incident_logs
   end
-
 
 
 

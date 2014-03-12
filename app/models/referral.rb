@@ -11,12 +11,13 @@
 #
 
 class Referral < ActiveRecord::Base
-  attr_accessible :comment, :user_id, :student_id
+  attr_accessible :comment, :user_id, :student_id, :school_id
 
   attr_accessible :service_provider_ids
 
   has_and_belongs_to_many :service_providers
   belongs_to :user
   belongs_to :student
+  belongs_to :school
 
 end

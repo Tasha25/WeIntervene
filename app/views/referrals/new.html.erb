@@ -27,7 +27,7 @@
                <div class="checkbox">
                   <label>
                      <input type="checkbox" name="service_provider_ids" value="<%= service_provider.id %>">
-                     <%= service_provider.name.capitalize %>
+                     <%= service_provider.name.capitalize rescue nil%>
                   </label>
                </div>
             <% end %>

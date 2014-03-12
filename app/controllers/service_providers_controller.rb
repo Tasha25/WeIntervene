@@ -7,7 +7,7 @@ end
 
 class ServiceProvidersController < ApplicationController
   def index
-    @user = User.find(params[:user_id])
+    @user = User.find_by_id(session[:user_id])
     @service_categories = ServiceCategory.all
     if !params[:service_provider].nil? && !params[:service_provider][:service_category_ids].nil?
       providers = ServiceProvider.
@@ -48,7 +48,7 @@ class ServiceProvidersController < ApplicationController
     @service_provider = ServiceProvider.new(params[:service_provider])
     if @service_provider.save
       flash[:notice] = 'Service Provider created.'
-      redirect_to user_service_providers_url
+      redirect_to service_providers_url
     else
       flash[:notice] = 'Service Provider not created.'
       render :new
@@ -57,7 +57,8 @@ class ServiceProvidersController < ApplicationController
 
 
   def show
-    @user = User.find(params[:user_id])
+    # @user = User.find(params[:user_id])
+    @user = User.find_by_id(session[:user_id])
     @students = @user.school.students
     @referral = Referral.new
     @service_provider = ServiceProvider.find(params[:id])

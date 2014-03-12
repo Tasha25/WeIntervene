@@ -6,7 +6,7 @@ class Users < ActiveRecord::Migration
       t.string :email
       t.string :salt
       t.string :encrypted_password
-      t.integer :school_id
+      t.integer :school_id, :null => false
       t.integer :service_provider_id
       t.timestamps
     end

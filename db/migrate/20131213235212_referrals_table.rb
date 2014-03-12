@@ -4,6 +4,7 @@ class ReferralsTable < ActiveRecord::Migration
       t.string :comment
       t.integer :user_id
       t.integer :student_id
+      t.integer :school_id, :null => false
       t.timestamps
     end
   end

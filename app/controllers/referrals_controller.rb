@@ -4,21 +4,25 @@ class ReferralsController < ApplicationController
  def index
   @user = User.find_by_id(session[:user_id])
   @referrals_user = @user.referrals
+  @referrals_school = @user.school.referrals
   #have to show al the school referrals
   @students = @user.school.students
 end
 
 def create
   @user = User.find(session[:user_id]) # user that makes the referral
+  @school = @user.school.id
   student_ids = params[:students].split(',')
   service_provider = ServiceProvider.find(params[:service_provider_id])
+  school = School.find(params[:school_id])
 
   student_ids.each do |student_id|
     new_referral = Referral.create(
       :user_id => session[:user_id],
       :student_id => student_id,
       :comment => params[:comment],
-      :service_provider_ids => params[:service_provider_id]
+      :service_provider_ids => params[:service_provider_id],
+      :school_id => params[:school_id]
     )
     if new_referral.save
       redirect_to @user

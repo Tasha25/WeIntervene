@@ -4,7 +4,7 @@ class StudentsController < ApplicationController
 
   def index
     @user = User.find(session[:user_id])
-    @user_page_id = params[:user_id]
+    @user_page_id = session[:user_id]
     @students = Student.where(:school_id => @user.school_id)
     @page_count = (@students.length.to_f/4).ceil
 

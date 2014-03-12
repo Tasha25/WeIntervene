@@ -1,0 +1,61 @@
+
+<div class="row one">
+  <section class="col-md-col-md-8">
+   <%= form_tag({:controller => "students", :action => "index"}, :method => "get") do %>
+   <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+  <% end %>
+</section>  <!-- Ends col-md-offset-2 col-md-8  -->
+</div>
+
+<div class="row two">
+
+  <section class="student-demographic col-md-8">
+
+    <table class="student-demographics-list table" >
+
+      <% @students.each do |student| %>
+      <tr>
+        <td>
+          <input type="checkbox" name="<%= student.full_name %>">
+        </td>
+        <td>
+          <img class="col-sm-4" src="/assets/students/<%= student.image_url %>">
+          <div class="student-info col-md-6">
+            <span class="name"><%= link_to "#{student.first_name} #{student.last_name}", school_student_path(student.school_id, student) %></span>
+            <span><%= student.identification_number %></span>
+            <span><%= student.date_of_birth %></span>
+            <address>
+             <%= student.street1 %>
+             <%= student.city %>, <%= student.state %> <%= student.zip_code %>
+           </address>
+           <div>
+             <span class="counselor">Counselor</span>&nbsp;<%= student.counselor %>
+           </div>
+           <div>
+             <span class="cohort">Cohort</span>&nbsp;<%= student.cohort %>
+           </div>
+         </div>
+
+         <% end %>
+       </td>
+     </tr>
+   </table>
+ </section> <!-- Ends student-demographic col-md-offset-2 col-md-8 -->
+</div>  <!--Ends row two -->
+
+<div class="row three">
+
+  <section class="student-demographic col-md-offset-2 col-md-8">
+  <% i = 0 %>
+  <% while i <= @page_count do %>
+  <a href="/schools/<%="#{@user_page_id}"%>/students?page=<%=i%>"> Page <%="#{i}"%> </a>
+  <% i +=1 %>
+  <!-- Need to loop through from 1 to the page_count -->
+  <% end %>
+</section>
+</div>
+
+

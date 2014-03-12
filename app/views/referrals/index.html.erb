@@ -1,63 +1,94 @@
 
+
 <body id="referral-all">
 
   <section class="container">
+
+       <div class="content row">
+      <input type="text" name="search" placeholder="Search"/>
+      <input type="submit" value="Search"/>
+    </div>
+
+
     <div class="content row">
 
-     <section class="left-sidebar col col-lg-2">
-      <h2> Inner left Side Bar </h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, libero tempore iure quas eum sed nihil error similique. Est, nam, nesciunt unde quaerat aut expedita enim quasi! Facilis, quasi, asperiores.</p>
-    </section> <!-- left-sidebar col col-lg-2 -->
+      <section class="main col col-lg-9">
 
-    <section class="main col col-lg-7">
+        <div id="referrals-list">
 
-      <div id="referrals-list">
+          <%= @user.user_name.capitalize %> from <%= @user.school.name %> referrals:<br><br>
 
-<%= @user.user_name.capitalize %> from <%= @user.school.name %><br><br>
+          <div class="referrals">
+
+           <table class="table table-striped">
+            <tr>
+              <th> Date</th>
+              <th> Student</th>
+              <th> Comment</th>
+              <th> Recommendation</th>
+              <th> Action </th>
+            </tr>
+
+            <% @referrals_user.each do |referral|  %>
+            <tr>
+
+              <td><%= referral.student.created_at.strftime("%m/%d/%Y") %></td>
+              <td><%= referral.student.full_name %></td>
+              <td><%= referral.comment.capitalize %></td>
+              <td><% referral.service_providers.each do |service_provider| %>
+                <%= service_provider.name %></td>
+                <%end %>
+                <td> <button class="btn btn-xs btn-primary"> Follow-up </button> </td>
+
+              </tr>
+              <%end %>
+            </table>
+            <div>
+
+              Referrals in <%= @user.school.name %>: <br>
+
+              <div class="referrals">
+
+               <table class="table table-striped">
+                <tr>
+                  <th> Date</th>
+                  <th> Student</th>
+                  <th> Comment</th>
+                  <th> Resource</th>
+                  <th> Reccommended by </th>
+                </tr>
+
+                <% @referrals_school.each do | school_referral|  %>
+                <tr>
+
+                  <td><%= school_referral.student.created_at.strftime("%m/%d/%Y") %></td>
+                  <td><%= school_referral.student.full_name %></td>
+                  <td><%= school_referral.comment.capitalize %></td>
+                  <td><% school_referral.service_providers.each do |service_provider| %>
+                    <%= service_provider.name %></td>
+                    <%end %>
+                    <td> <%= school_referral.user.user_name %> </td>
+                  </tr>
+                  <%end %>
+                </table>
+                <div>
 
 
-Your referrals:
-<div class="referrals">
-
- <table class="table table-striped">
-  <tr>
-    <td> Date</td>
-    <td> Student</td>
-    <td> Comment</td>
-    <td> Resource</td>
-  </tr>
-
-    <% @referrals_user.each do |referral|  %>
-  <tr>
-
-    <td><%= referral.student.created_at.strftime("%m/%d/%Y") %></td>
-    <td><%= referral.student.full_name %></td>
-    <td><%= referral.comment.capitalize %></td>
-    <td><% referral.service_providers.each do |service_provider| %>
-      <%= service_provider.name %></td>
-      <%end %>
-
-    </tr>
-     <%end %>
-  </table>
-  <div>
-
-Referrals in the school:
 
 
 
 
-      </div>
-       </section> <!-- main col col-lg-6 -->
+                </div>
+              </section> <!-- main col col-lg-6 -->
 
-       <section class="sidebar col col-lg-3">
-        <h2> Side Bar </h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, libero tempore iure quas eum sed nihil error similique. Est, nam, nesciunt unde quaerat aut expedita enim quasi! Facilis, quasi, asperiores.</p>
+              <section class="sidebar col col-lg-3">
+                <h2> Side Bar </h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, libero tempore iure quas eum sed nihil error similique. Est, nam, nesciunt unde quaerat aut expedita enim quasi! Facilis, quasi, asperiores.</p>
 
-      </section> <!-- right sidebar -->
-    </div>  <!-- content -->
-  </section> <!-- container -->
+              </section> <!-- right sidebar -->
+            </div>  <!-- content -->
+          </section> <!-- container -->
 
 
 
-</body>
+        </body>

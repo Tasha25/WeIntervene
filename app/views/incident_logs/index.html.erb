@@ -3,27 +3,24 @@
 
   <section class="container">
     <div class="content row">
-
-     <section class="left-sidebar col col-lg-2">
-      <h2> Inner left Side Bar </h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, libero tempore iure quas eum sed nihil error similique. Est, nam, nesciunt unde quaerat aut expedita enim quasi! Facilis, quasi, asperiores.</p>
-    </section> <!-- left-sidebar col col-lg-2 -->
-
-    <section class="main col col-lg-7">
+      <input type="text" name="search" placeholder="Search"/>
+      <input type="submit" value="Search"/>
+    </div>
+    <section class="main col col-lg-9">
 
       <div id="incident-log-list">
 
-        <%= @user.user_name.capitalize %> from <%= @user.school.name %><br><br>
 
-        Your incidents:
+        <h2> Your incidents: </h2>
         <div class="incident-logs">
 
          <table class="table table-striped">
           <tr>
-            <td> Date</td>
-            <td> Student</td>
-            <td> Comment</td>
-
+            <th> Date</th>
+            <th> Student</th>
+            <th> Comment</th>
+            <th> Infractions </th>
+            <th> Action </th>
           </tr>
 
           <% @incident_logs.each do |incident_log|  %>
@@ -32,24 +29,23 @@
             <td><%= incident_log.student.created_at.strftime("%m/%d/%Y") %></td>
             <td><%= incident_log.student.full_name %></td>
             <td><%= incident_log.comment.capitalize %></td>
+            <td><%= incident_log.infractions[0].code%></td>
+            <td> <button class="btn btn-xs btn-primary"> Make Referral </button>  </td>
 
           </tr>
           <%end %>
         </table>
         <div>
 
-          Referrals in the school:
-
-
-
 
         </div>
       </section> <!-- main col col-lg-6 -->
 
       <section class="sidebar col col-lg-3">
-        <h2> Side Bar </h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, libero tempore iure quas eum sed nihil error similique. Est, nam, nesciunt unde quaerat aut expedita enim quasi! Facilis, quasi, asperiores.</p>
-
+        <h2> Filter</h2>
+        <ul>
+          <li> Infractions</li>
+        </ul>
       </section> <!-- right sidebar -->
     </div>  <!-- content -->
   </section> <!-- container -->
